@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timebuyers — Cultural Values Assessment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#3a9fa8;--teal-d:#2c7d85;--teal-l:#c8ecee;--teal-xl:#eaf6f7;
+  --blue:#5b7fa6;--blue-l:#d6e4f0;
+  --bg:#eaf6f7;--surface:#fff;--surface2:#f2f9fa;
+  --border:#cce4e7;--text:#1a2e35;--mid:#4a6370;--soft:#7a96a0;
+  --green:#4caf82;--green-l:#e8f5ef;--green-d:#2d7a4f;
+  --amber:#e8a94a;--amber-l:#fdf4e3;
+  --red:#e05c5c;--red-l:#fdeaea;
+  --radius:12px;
+  --sh:0 2px 16px rgba(58,159,168,0.1);
+  --sh-md:0 4px 24px rgba(58,159,168,0.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+.screen{display:none;min-height:100vh;flex-direction:column;}
+.screen.active{display:flex;}
+
+/* NAV */
+nav{background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;
+  display:flex;align-items:center;gap:12px;height:58px;
+  position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(58,159,168,0.07);}
+.nl{display:flex;align-items:center;gap:9px;text-decoration:none;cursor:pointer;}
+.lr{width:32px;height:32px;border-radius:50%;background:var(--teal-xl);border:1.5px solid var(--teal);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.lr svg{width:18px;height:18px;}
+.nb{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--teal-d);}
+.ns{font-family:'Space Mono',monospace;font-size:0.54rem;color:var(--soft);letter-spacing:.1em;text-transform:uppercase;}
+.np{flex:1;margin-left:16px;}
+.pb{height:3px;background:var(--teal-l);border-radius:2px;overflow:hidden;}
+.pf{height:100%;background:linear-gradient(90deg,var(--teal-d),var(--teal));border-radius:2px;transition:width .5s ease;}
+.pt{font-family:'Space Mono',monospace;font-size:0.54rem;color:var(--soft);margin-top:3px;}
+
+/* LAYOUT */
+.wrap{max-width:720px;margin:0 auto;padding:0 20px;width:100%;}
+.content{flex:1;padding:36px 0 60px;}
+.foot{text-align:center;font-family:'Space Mono',monospace;font-size:0.56rem;color:var(--soft);padding:18px;line-height:1.6;}
+
+/* LANDING */
+.hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:52px 20px;text-align:center;}
+.h-ring{width:80px;height:80px;border-radius:50%;background:var(--surface);border:2px solid var(--teal);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 22px;
+  box-shadow:0 0 0 8px var(--teal-xl),var(--sh);}
+.h-ring svg{width:48px;height:48px;}
+.ey{font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;}
+.ht{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,5vw,3rem);font-weight:600;color:var(--text);line-height:1.15;margin-bottom:8px;}
+.ht em{color:var(--teal-d);font-style:italic;}
+.hs{font-size:0.86rem;color:var(--mid);max-width:440px;line-height:1.75;margin:10px auto 36px;}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:580px;margin:0 auto;}
+.mc{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:22px 18px;cursor:pointer;transition:all .22s;text-align:left;}
+.mc:hover{border-color:var(--teal);box-shadow:var(--sh-md);transform:translateY(-2px);}
+.mc-ic{font-size:1.5rem;margin-bottom:9px;display:block;}
+.mc h3{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--text);margin-bottom:4px;}
+.mc p{font-size:0.74rem;color:var(--mid);line-height:1.55;}
+.mc-tag{display:inline-block;margin-top:9px;font-family:'Space Mono',monospace;font-size:0.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-d);background:var(--teal-xl);padding:3px 9px;border-radius:20px;}
+
+/* TYPOGRAPHY */
+.sl{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:5px;}
+.stitle{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--text);margin-bottom:4px;}
+.ssub{font-size:0.81rem;color:var(--mid);line-height:1.65;margin-bottom:26px;}
+
+/* CARD */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:12px;}
+
+/* FORM */
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+.fg3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;}
+.fg{display:flex;flex-direction:column;gap:4px;}
+.fg.full{grid-column:1/-1;}
+label{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);}
+input,select{background:var(--bg);border:1.5px solid var(--border);border-radius:8px;padding:10px 12px;
+  color:var(--text);font-family:'Inter',sans-serif;font-size:0.85rem;transition:border-color .18s;outline:none;width:100%;}
+input:focus,select:focus{border-color:var(--teal);background:var(--surface);}
+input::placeholder{color:var(--soft);}
+select option{background:white;}
+.fnote{font-size:0.7rem;color:var(--soft);margin-bottom:14px;line-height:1.55;}
+
+/* INST SELECTOR */
+.igrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:16px 0;}
+.ic{background:var(--surface);border:2px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:all .2s;}
+.ic.on{border-color:var(--teal);background:var(--teal-xl);}
+.ic h3{font-family:'Cormorant Garamond',serif;font-size:0.93rem;font-weight:600;color:var(--text);margin-bottom:3px;}
+.ic p{font-size:0.71rem;color:var(--mid);line-height:1.5;}
+.ibadge{display:inline-block;margin-top:6px;font-family:'Space Mono',monospace;font-size:0.52rem;letter-spacing:.08em;background:var(--blue-l);color:var(--blue);padding:2px 7px;border-radius:20px;}
+
+/* NOTES */
+.mnote{background:var(--teal-xl);border:1px solid var(--teal-l);border-radius:var(--radius);padding:12px 14px;margin:14px 0;font-size:0.74rem;color:var(--teal-d);line-height:1.65;}
+.mnote strong{color:var(--teal-d);}
+.ibox{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin:12px 0;font-size:0.78rem;color:var(--mid);line-height:1.7;}
+.ibox strong{color:var(--text);}
+
+/* DIVIDER */
+.dv{height:1px;background:var(--border);margin:20px 0;}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:8px;border:none;
+  font-family:'Space Mono',monospace;font-size:0.68rem;font-weight:700;letter-spacing:.06em;
+  cursor:pointer;transition:all .2s;text-decoration:none;}
+.btn-p{background:var(--teal);color:white;box-shadow:0 3px 10px rgba(58,159,168,0.28);}
+.btn-p:hover{background:var(--teal-d);transform:translateY(-1px);box-shadow:0 5px 16px rgba(58,159,168,0.36);}
+.btn-o{background:transparent;border:1.5px solid var(--border);color:var(--mid);}
+.btn-o:hover{border-color:var(--teal);color:var(--teal-d);}
+.brow{display:flex;gap:9px;margin-top:22px;flex-wrap:wrap;}
+
+/* QUESTIONS */
+.qs{flex:1;padding:32px 0 64px;}
+.qmeta{display:flex;align-items:center;gap:9px;margin-bottom:18px;}
+.qb{font-family:'Space Mono',monospace;font-size:0.57rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:20px;}
+.b-PDI,.b-PURPLE{background:#f0e6ff;color:#6a3aad;border:1px solid #d4b8f5;}
+.b-IDV,.b-BLUE{background:var(--teal-xl);color:var(--teal-d);border:1px solid var(--teal-l);}
+.b-MAS,.b-RED{background:var(--red-l);color:#9b2020;border:1px solid #f5c4c4;}
+.b-UAI,.b-ORANGE{background:var(--amber-l);color:#7a5010;border:1px solid #f0d4a0;}
+.b-LTO,.b-GREEN{background:var(--green-l);color:var(--green-d);border:1px solid #b8e0cc;}
+.b-IVR,.b-YELLOW{background:#fef9e3;color:#7a7010;border:1px solid #e8e0a0;}
+.qcnt{font-family:'Space Mono',monospace;font-size:0.6rem;color:var(--soft);}
+.qtxt{font-family:'Cormorant Garamond',serif;font-size:clamp(1.05rem,2.2vw,1.28rem);line-height:1.55;color:var(--text);margin-bottom:20px;font-style:italic;}
+.opts{display:flex;flex-direction:column;gap:9px;}
+.opt{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);padding:13px 15px;cursor:pointer;transition:all .18s;display:flex;align-items:flex-start;gap:11px;}
+.opt:hover{border-color:var(--teal);background:var(--teal-xl);}
+.opt.sel{border-color:var(--teal-d);background:var(--teal-xl);}
+.opt.selM{border-color:var(--blue);background:var(--blue-l);}
+.opt.selm{border-color:var(--red);background:var(--red-l);}
+.olbl{font-family:'Space Mono',monospace;font-size:0.7rem;font-weight:700;min-width:16px;color:var(--teal-d);flex-shrink:0;margin-top:2px;}
+.otxt{font-size:0.85rem;line-height:1.55;color:var(--text);}
+.mlw{display:flex;gap:5px;margin-left:auto;flex-shrink:0;}
+.mlb{font-family:'Space Mono',monospace;font-size:0.58rem;font-weight:700;padding:3px 7px;border-radius:6px;border:1.5px solid var(--border);background:var(--bg);color:var(--soft);cursor:pointer;transition:all .15s;}
+.mlb.aM{background:var(--blue);border-color:var(--blue);color:white;}
+.mlb.am{background:var(--red);border-color:var(--red);color:white;}
+.lklbl{display:flex;justify-content:space-between;font-size:0.65rem;color:var(--soft);margin-bottom:7px;}
+.lkopts{display:flex;gap:7px;justify-content:center;margin:9px 0;}
+.lkb{width:48px;height:48px;border-radius:8px;border:1.5px solid var(--border);background:var(--surface);color:var(--mid);font-family:'Space Mono',monospace;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all .18s;}
+.lkb:hover{border-color:var(--teal);color:var(--teal-d);}
+.lkb.sel{background:var(--teal);border-color:var(--teal);color:white;}
+.nbtns{display:flex;gap:9px;align-items:center;margin-top:28px;flex-wrap:wrap;}
+
+/* RESULTS */
+.rw{flex:1;padding:36px 0 72px;}
+.rhdr{text-align:center;margin-bottom:36px;}
+.rhdr h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:600;color:var(--text);margin-bottom:4px;}
+.ir{margin-bottom:32px;}
+.ir h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--teal-d);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+.dr{display:flex;align-items:center;gap:12px;margin-bottom:13px;}
+.drl{font-family:'Space Mono',monospace;font-size:0.62rem;font-weight:700;width:40px;text-align:right;color:var(--mid);}
+.dbb{flex:1;height:8px;background:var(--teal-l);border-radius:4px;overflow:hidden;}
+.dbf{height:100%;border-radius:4px;transition:width 1.2s cubic-bezier(.4,0,.2,1);}
+.dv2{font-family:'Space Mono',monospace;font-size:0.68rem;font-weight:700;width:28px;text-align:right;color:var(--text);}
+.dp{font-size:0.7rem;color:var(--mid);width:120px;}
+.sds{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.sdr{display:flex;align-items:center;gap:10px;background:var(--surface2);border-radius:8px;padding:9px 12px;}
+.sdr.top{border:1.5px solid var(--teal);background:var(--teal-xl);}
+.sdn{font-family:'Space Mono',monospace;font-size:0.63rem;font-weight:700;width:62px;}
+.sdb{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden;}
+.sdf{height:100%;border-radius:3px;}
+.sds2{font-family:'Space Mono',monospace;font-size:0.66rem;font-weight:700;color:var(--text);width:24px;text-align:right;}
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:16px 0;}
+.rc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;}
+.rc h4{font-family:'Space Mono',monospace;font-size:0.58rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--soft);margin-bottom:5px;}
+.rc .val{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;color:var(--text);}
+.rc .sub{font-size:0.7rem;color:var(--soft);margin-top:3px;}
+.exs{margin-top:26px;padding-top:20px;border-top:1px solid var(--border);}
+.exs h3{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--text);margin-bottom:11px;}
+
+/* JUDGE */
+.ji{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:12px;}
+.jih{display:flex;align-items:center;gap:9px;margin-bottom:11px;}
+.jcode{font-family:'Space Mono',monospace;font-size:0.6rem;font-weight:700;background:var(--teal-xl);color:var(--teal-d);padding:3px 10px;border-radius:20px;}
+.jopts{background:var(--surface2);border-radius:8px;padding:11px 13px;margin-bottom:11px;}
+.jopts p{font-size:0.81rem;line-height:1.6;color:var(--text);margin-bottom:4px;}
+.jcrit{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.jc h5{font-family:'Space Mono',monospace;font-size:0.57rem;font-weight:700;color:var(--mid);margin-bottom:6px;line-height:1.4;letter-spacing:.04em;}
+.cs{display:flex;gap:5px;}
+.cb{width:32px;height:32px;border-radius:6px;border:1.5px solid var(--border);background:var(--bg);color:var(--mid);font-family:'Space Mono',monospace;font-size:0.78rem;font-weight:700;cursor:pointer;transition:all .17s;}
+.cb:hover{border-color:var(--teal);color:var(--teal-d);}
+.cb.sel{background:var(--teal);border-color:var(--teal);color:white;}
+.cvibox{background:var(--teal-xl);border:1px solid var(--teal-l);border-radius:var(--radius);padding:18px;margin:16px 0;}
+.cvibox h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--teal-d);margin-bottom:13px;}
+.cvigrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:9px;}
+.cvii{text-align:center;background:var(--surface);border-radius:8px;padding:11px 8px;}
+.cviv{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--text);}
+.cviv.ok{color:var(--green-d);}.cviv.warn{color:#7a5010;}.cviv.fail{color:#9b2020;}
+.cvil{font-family:'Space Mono',monospace;font-size:0.53rem;color:var(--soft);margin-top:3px;line-height:1.4;}
+
+/* ADMIN LOGIN */
+.ac{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 20px;}
+.lbox{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:36px;width:100%;max-width:340px;text-align:center;box-shadow:var(--sh-md);}
+.lbox h2{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--text);margin:10px 0 4px;}
+.lbox p{font-size:0.78rem;color:var(--mid);margin-bottom:20px;}
+.lerr{font-size:0.72rem;color:var(--red);margin-top:5px;display:none;}
+
+/* ADMIN PANEL */
+.apc{flex:1;padding:36px 0 72px;}
+.tabs{display:flex;gap:3px;background:var(--surface2);border-radius:10px;padding:3px;margin-bottom:22px;border:1px solid var(--border);}
+.tab{flex:1;padding:8px;border-radius:8px;border:none;background:transparent;color:var(--mid);font-family:'Space Mono',monospace;font-size:0.6rem;font-weight:700;letter-spacing:.05em;cursor:pointer;transition:all .2s;}
+.tab.on{background:var(--surface);color:var(--teal-d);box-shadow:0 1px 4px rgba(58,159,168,0.12);}
+.invbox{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:11px;}
+.invbox h4{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:9px;}
+.lrow{display:flex;align-items:center;gap:9px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:9px 11px;margin-bottom:5px;}
+.lrow code{font-family:'Space Mono',monospace;font-size:0.66rem;color:var(--teal-d);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.cpbtn{background:var(--teal-xl);border:1px solid var(--teal-l);color:var(--teal-d);font-family:'Space Mono',monospace;font-size:0.58rem;font-weight:700;padding:4px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:all .18s;}
+.cpbtn:hover{background:var(--teal-l);}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:18px;}
+.sc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:15px;text-align:center;}
+.sc .n{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--teal-d);}
+.sc .l{font-family:'Space Mono',monospace;font-size:0.56rem;color:var(--soft);margin-top:3px;}
+.rlist{display:flex;flex-direction:column;gap:6px;margin-bottom:18px;}
+.rrow{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:9px 12px;display:flex;align-items:center;gap:9px;font-size:0.78rem;}
+.rrow strong{color:var(--text);flex:1;}
+.rrow span{color:var(--soft);font-size:0.68rem;}
+
+/* UTILS */
+.toast{position:fixed;bottom:20px;right:20px;z-index:1000;background:var(--text);border-radius:10px;padding:11px 16px;font-size:0.78rem;color:white;box-shadow:var(--sh-md);opacity:0;transform:translateY(8px);transition:all .3s;pointer-events:none;max-width:260px;}
+.toast.show{opacity:1;transform:translateY(0);}
+.sending{position:fixed;inset:0;background:rgba(234,246,247,0.9);z-index:500;display:none;align-items:center;justify-content:center;flex-direction:column;gap:13px;}
+.sending.show{display:flex;}
+.spin{width:36px;height:36px;border:3px solid var(--teal-l);border-top-color:var(--teal);border-radius:50%;animation:sp .8s linear infinite;}
+@keyframes sp{to{transform:rotate(360deg);}}
+.hidden{display:none!important;}
+@media(max-width:600px){
+  .fg2,.fg3,.igrid,.rgrid,.jcrit,.mgrid{grid-template-columns:1fr;}
+  .lkopts{gap:5px;}.lkb{width:42px;height:42px;}
+  .dp{display:none;}
+}
+</style>
+</head>
+<body>
+<div class="sending" id="sending"><div class="spin"></div><p style="font-family:'Space Mono',monospace;font-size:0.66rem;color:var(--mid);">Saving results…</p></div>
+<div id="app">
+
+<!-- LANDING -->
+<div class="screen active" id="sc-landing">
+<nav>
+  <div class="nl" onclick="go('landing')">
+    <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
+    <div><div class="nb">Timebuyers</div><div class="ns">Cultural Assessment</div></div>
+  </div>
+</nav>
+<div class="hero">
+  <div class="h-ring">
+    <svg viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="26" stroke="#3a9fa8" stroke-width="1.5" fill="#eaf6f7"/><path d="M28 28 Q38 19 35 9 Q24 3 14 9 Q4 19 10 32 Q16 44 28 40 Q40 35 38 22 Q32 12 22 16" stroke="#3a9fa8" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M28 28 Q33 23 32 16 Q26 12 20 16 Q14 22 18 30" stroke="#2c7d85" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.5"/><circle cx="28" cy="28" r="4" fill="#3a9fa8" opacity="0.3"/><circle cx="28" cy="28" r="2" fill="#2c7d85"/></svg>
+  </div>
+  <p class="ey">Barreto (2026) · Research Platform</p>
+  <h1 class="ht">Cultural Values<br><em>Assessment</em></h1>
+  <p class="hs">Integrated Hofstede–Spiral Dynamics framework for organizational communication research. Select your role to begin.</p>
+  <div class="mgrid">
+    <div class="mc" onclick="go('intake')">
+      <span class="mc-ic">🧭</span>
+      <h3>Participant Assessment</h3>
+      <p>Complete the Hofstede and Spiral Dynamics instruments and receive your personal cultural values profile.</p>
+      <span class="mc-tag">Questionnaire</span>
+    </div>
+    <div class="mc" onclick="go('judge-intro')">
+      <span class="mc-ic">🔬</span>
+      <h3>Expert Judge — CVI Panel</h3>
+      <p>Evaluate instrument items for content validity as part of the academic validation process.</p>
+      <span class="mc-tag">Phase 2 · Validation</span>
+    </div>
+  </div>
+</div>
+<div class="foot">Timebuyers Cultural Assessment · © 2026</div>
+</div>
+
+<!-- INTAKE -->
+<div class="screen" id="sc-intake">
+<nav>
+  <div class="nl" onclick="go('landing')">
+    <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
+    <div><div class="nb">Timebuyers</div><div class="ns">Registration</div></div>
+  </div>
+  <div class="np"><div class="pb"><div class="pf" style="width:5%"></div></div><div class="pt">Step 1 of 4</div></div>
+</nav>
+<div class="content"><div class="wrap">
+  <p class="sl">Registration</p>
+  <h2 class="stitle">Before You Begin</h2>
+  <p class="ssub">Only your operational role is collected here. All other data is obtained through Safety and HR records.</p>
+
+  <div class="card">
+    <p class="sl" style="margin-bottom:6px;">Operational Role</p>
+    <p class="fnote">This is the only data collected here. All other information (experience, nationality, flight hours) is obtained through existing Safety and HR records and matched via your session code during the interview.</p>
+    <div class="fg" style="max-width:280px;">
+      <label>Select your role *</label>
+      <select id="p-pos">
+        <option value="">Select…</option>
+        <option value="CAPT">CAPT — Captain</option>
+        <option value="FO">FO — First Officer</option>
+        <option value="PUR">PUR — Purser / CSM</option>
+        <option value="CA">CA — Cabin Attendant</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div class="mnote" style="margin-top:14px;"><strong>Privacy:</strong> No name, ID, or contact data is collected. Your session code is generated automatically on completion and matched with operational records only during the structured interview (Barreto, 2026).</div>
+  </div>
+
+  <div class="dv"></div>
+  <p class="sl">Select Instruments</p>
+  <div class="igrid">
+    <div class="ic on" id="ic-h" onclick="toggleI('h')">
+      <h3>🔷 Hofstede Individual Instrument</h3>
+      <p>30 items · Forced choice A/B · 6 dimensions: PDI, IDV, MAS, UAI, LTO, IVR</p>
+      <span class="ibadge">Barreto (2026) · Pre-validation</span>
+    </div>
+    <div class="ic on" id="ic-s" onclick="toggleI('s')">
+      <h3>🌀 Spiral Dynamics Assessment</h3>
+      <p>18 items · Part 1: Most/Least · Part 2: Likert 1–5 · PURPLE → YELLOW</p>
+      <span class="ibadge">Beck &amp; Cowan (1996)</span>
+    </div>
+  </div>
+  <div class="mnote"><strong>Methodological note:</strong> The Hofstede Individual Instrument (Barreto, 2026) is in pre-validation phase — results are indicative. Spiral Dynamics is based on Beck and Cowan (1996) and Graves (2005). All responses are used exclusively for academic research.</div>
+  <div class="brow">
+    <button class="btn btn-o" onclick="go('landing')">← Back</button>
+    <button class="btn btn-p" onclick="startA()">Begin Assessment →</button>
+  </div>
+</div></div>
+<div class="foot">Timebuyers Cultural Assessment · © 2026</div>
+</div>
+
+<!-- QUESTIONS -->
+<div class="screen" id="sc-questions">
+<nav>
+  <div class="nl">
+    <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
+    <div><div class="nb">Timebuyers</div><div class="ns" id="qil">Hofstede Instrument</div></div>
+  </div>
+  <div class="np"><div class="pb"><div class="pf" id="qpf" style="width:5%"></div></div><div class="pt" id="qpl">Item 1 of 30</div></div>
+</nav>
+<div class="qs"><div class="wrap">
+  <div id="qa"></div>
+  <div class="nbtns">
+    <button class="btn btn-o" id="bp" onclick="prevQ()" style="display:none">← Previous</button>
+    <button class="btn btn-p" id="bn" onclick="nextQ()">Next →</button>
+  </div>
+</div></div>
+</div>
+
+<!-- RESULTS -->
+<div class="screen" id="sc-results">
+<nav>
+  <div class="nl">
+    <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
+    <div><div class="nb">Timebuyers</div><div class="ns">Your Cultural Profile</div></div>
+  </div>
+</nav>
+<div class="rw"><div class="wrap">
+  <div class="rhdr"><p class="ey">Assessment Complete</p><h2 id="rname">Your Cultural Values Profile</h2><p id="rdate" style="font-family:'Space Mono',monospace;font-size:0.6rem;color:var(--soft);margin-top:4px;"></p></div>
+  <div id="rc"></div>
+  <div class="exs"><h3>Download Your Results</h3>
+    <div class="brow">
+      <button class="btn btn-p" onclick="dlCSV()">⬇ Download CSV</button>
+      <button class="btn btn-o" onclick="go('landing')">← Start New</button>
+    </div>
+  </div>
+</div></div>
+<div class="foot">Timebuyers Cultural Assessment · © 2026 · Data used exclusively for academic research (Barreto, 2026)</div>
+</div>
+
+<!-- JUDGE INTRO -->
+<div class="screen" id="sc-judge-intro">
+<nav>
+  <div class="nl" onclick="go('landing')">
+    <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
+    <div><div class="nb">Timebuyers</div><div class="ns">Expert Judge · CVI Panel</div></div>
+  </div>
+</nav>
+<div class="content"><div class="wrap">
+  <p class="sl">Expert Panel · Phase 2</p>
+  <h2 class="stitle">Judge Registration</h2>
+  <p class="ssub">Your evaluations contribute to the Content Validity Index (CVI) calculation for the Hofstede Individual Instrument.</p>
+
+  <div class="ibox">
+    <strong>About this instrument:</strong> The Hofstede Individual Instrument (Barreto, 2026) is an original psychometric tool designed to operationalize Hofstede's six cultural value dimensions at the individual level. It is currently in <strong>Phase 1 (Item Design)</strong> and requires expert panel validation (Phase 2) before field deployment. The instrument is part of the research framework <em>Predicting Organizational Communication Failure: An Integrated Hofstede–Spiral Dynamics Framework</em> (Rafael Barreto Plasencia, 2026), and will serve as the primary data collection tool for a Southeast Asian low-cost carrier (SALCC) field study. It is designed for independent publication upon completion of full psychometric validation. Theoretical foundations: Hofstede (2001); Taras et al. (2016); Beck &amp; Cowan (1996).
+  </div>
+
+  <div class="fg2" style="margin-top:16px;">
+    <div class="fg"><label>Full Name *</label><input id="jn" placeholder="Dr. / Prof. …"></div>
+    <div class="fg"><label>Institution *</label><input id="ji" placeholder="University / Research center"></div>
+    <div class="fg"><label>Area of Expertise *</label><input id="je" placeholder="e.g. Cross-cultural psychology…"></div>
+    <div class="fg"><label>Email</label><input id="jem" type="email" placeholder="your@email.com"></div>
+  </div>
+  <div class="mnote" style="margin-top:14px;"><strong>Evaluation criteria (1–4 per item):</strong> (1) Relevance to Hofstede dimension · (2) Clarity of wording · (3) Cultural sensitivity · (4) Social desirability risk. Ratings ≥ 3 count toward I-CVI. Decision thresholds: I-CVI ≥ 0.78 retain · 0.60–0.77 revise · &lt;0.60 eliminate. S-CVI/Ave ≥ 0.90 required (Lynn, 1986; Polit &amp; Beck, 2006).</div>
+  <div class="brow">
+    <button class="btn btn-o" onclick="go('landing')">← Back</button>
+    <button class="btn btn-p" onclick="startJ()">Begin Evaluation →</button>
+  </div>
+</div></div>
+<div class="foot">Timebuyers Cultural Assessment · © 2026</div>
+</div>
+
+<!-- JUDGE EVAL -->
+<div class="screen" id="sc-judge-eval">
+<nav>
+  <div class="nl">
+    <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
+    <div><div class="nb">Timebuyers</div><div class="ns">CVI Evaluation</div></div>
+  </div>
+  <div class="np"><div class="pb"><div class="pf" id="jpf" style="width:0%"></div></div><div class="pt" id="jpl">Item 1 of 30</div></div>
+</nav>
+<div class="content"><div class="wrap" id="jarea"></div></div>
+</div>
+
+<!-- ADMIN LOGIN -->
+<div class="screen" id="sc-admin-login">
+<nav>
+  <div class="nl" onclick="go('landing')">
+    <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
+    <div><div class="nb">Timebuyers</div><div class="ns">Administrator</div></div>
+  </div>
+</nav>
+<div class="ac">
+  <div class="lbox">
+    <div style="font-size:2rem;margin-bottom:2px;">🔒</div>
+    <h2>Administrator</h2>
+    <p>Research data access — restricted</p>
+    <div class="fg" style="text-align:left;margin-bottom:6px;"><label>Password</label><input id="apw" type="password" placeholder="Enter password" onkeydown="if(event.key==='Enter')adminL()"></div>
+    <p class="lerr" id="lerr">Incorrect password.</p>
+    <div class="brow" style="justify-content:center;margin-top:13px;"><button class="btn btn-p" onclick="adminL()">Access Panel →</button></div>
+    <p style="font-family:'Space Mono',monospace;font-size:0.56rem;color:var(--soft);margin-top:15px;">URL: <code style="color:var(--teal-d);">?admin</code></p>
+  </div>
+</div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="screen" id="sc-admin">
+<nav>
+  <div class="nl">
+    <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
+    <div><div class="nb">Timebuyers</div><div class="ns">Research Data Panel</div></div>
+  </div>
+  <button class="btn btn-o" style="margin-left:auto;font-size:0.6rem;padding:7px 13px;" onclick="go('landing')">Exit</button>
+</nav>
+<div class="apc"><div class="wrap">
+  <p class="sl">Administrator · Barreto (2026)</p>
+  <h2 class="stitle" style="font-size:1.4rem;margin-bottom:16px;">Research Data Panel</h2>
+  <div class="tabs">
+    <button class="tab on" onclick="aTab('links',this)">Invitation Links</button>
+    <button class="tab" onclick="aTab('data',this)">Responses</button>
+    <button class="tab" onclick="aTab('cvi',this)">CVI Summary</button>
+  </div>
+  <div id="at-links">
+    <div class="invbox"><h4>🧭 Participant Link</h4><div class="lrow"><code id="lnkp">https://www.timebuyers.net/assessment/</code><button class="cpbtn" onclick="cpL('lnkp')">Copy</button></div><p style="font-size:0.7rem;color:var(--soft);">Send to research participants (VietJet/SALCC staff).</p></div>
+    <div class="invbox"><h4>🔬 Expert Judge Link</h4><div class="lrow"><code id="lnkj">https://www.timebuyers.net/assessment/?judge</code><button class="cpbtn" onclick="cpL('lnkj')">Copy</button></div><p style="font-size:0.7rem;color:var(--soft);">Send to expert panel. Minimum 5, ideally 7–10 judges (Lynn, 1986).</p></div>
+    <div class="invbox"><h4>📧 Email Template</h4>
+      <div style="background:var(--surface2);border-radius:8px;padding:12px;font-size:0.75rem;color:var(--mid);line-height:1.75;border:1px solid var(--border);">
+        Subject: Invitation — Cultural Values Research Study (Barreto, 2026)<br><br>Dear [Name],<br><br>You are invited to participate in a research study on cultural values and organizational communication (approx. 20 minutes).<br><br>Access: <strong>https://www.timebuyers.net/assessment/</strong><br><br>All responses are confidential. Data used exclusively for academic research.<br><br>Thank you,<br>Rafael Barreto Plasencia · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c7b5a6a1a6a5a6b5b5a2b3a887b3aeaaa2a5b2bea2b5b4e9a9a2b3">[email&#160;protected]</a>
+      </div>
+    </div>
+  </div>
+  <div id="at-data" class="hidden"><div class="sgrid" id="ascards"></div><div class="rlist" id="arlist"></div><div class="brow"><button class="btn btn-p" onclick="dlAll()">⬇ Export All Responses (CSV)</button><button class="btn btn-o" onclick="dlJudge()">⬇ Export CVI Data (CSV)</button></div></div>
+  <div id="at-cvi" class="hidden"><div id="acvi"></div></div>
+</div></div>
+<div class="foot">Timebuyers Research Data Panel · © 2026</div>
+</div>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const APW='C979323a)=';
+const GAS_URL='https://script.google.com/macros/s/AKfycbwRRX-o9QcSZV-5RMTLyNPdal2V0Ary4tGoRJFpsG2lnNsZ-Eib0xtXd7AbvNUP9UUC/exec';
+
+const HI=[
+ {c:"PDI-01",d:"PDI",dn:"Power Distance",q:"When I think about management and authority in my workplace…",A:"It is important that managers explain their decisions to their team members.",B:"It is not necessary for managers to justify their decisions — their authority speaks for itself.",sA:0,sB:1},
+ {c:"PDI-02",d:"PDI",dn:"Power Distance",q:"When facing disagreement with my supervisor…",A:"I feel comfortable disagreeing with my supervisor when I think they are wrong.",B:"I prefer to follow my supervisor's direction even when I privately disagree.",sA:0,sB:1},
+ {c:"PDI-03",d:"PDI",dn:"Power Distance",q:"When I think about ideal organizational structures…",A:"The best organizations are those where power is distributed across many levels.",B:"The best organizations are those with a clear chain of command where decisions come from the top.",sA:0,sB:1},
+ {c:"PDI-04",d:"PDI",dn:"Power Distance",q:"Regarding access to senior leadership…",A:"I believe all employees, regardless of rank, should have equal access to senior leadership.",B:"I believe that access to senior leadership should be regulated according to organizational hierarchy.",sA:0,sB:1},
+ {c:"PDI-05",d:"PDI",dn:"Power Distance",q:"When it comes to organizational rules…",A:"Rules should apply equally to everyone in an organization, regardless of their position.",B:"People in higher positions naturally operate under different rules than those below them.",sA:0,sB:1},
+ {c:"IDV-01",d:"IDV",dn:"Individualism",q:"When making an important career decision…",A:"I prioritize what is best for me and my immediate goals.",B:"I consider how it will affect my family and close group.",sA:1,sB:0},
+ {c:"IDV-02",d:"IDV",dn:"Individualism",q:"When it comes to team recognition…",A:"I prefer working in teams where individual contributions are recognized separately.",B:"I prefer working in teams where the group's achievement matters more than individual credit.",sA:1,sB:0},
+ {c:"IDV-03",d:"IDV",dn:"Individualism",q:"On personal goals vs. group harmony…",A:"I believe that personal goals should come before group harmony.",B:"I believe that group harmony should take priority over personal goals.",sA:1,sB:0},
+ {c:"IDV-04",d:"IDV",dn:"Individualism",q:"When expressing opinions in my group…",A:"I feel most comfortable when I can express my personal opinion openly, even if others disagree.",B:"I feel most comfortable when my views align with those of my group.",sA:1,sB:0},
+ {c:"IDV-05",d:"IDV",dn:"Individualism",q:"What shapes my sense of identity…",A:"My identity is shaped primarily by my personal achievements and choices.",B:"My identity is shaped primarily by the groups I belong to — family, community, organization.",sA:1,sB:0},
+ {c:"MAS-01",d:"MAS",dn:"Masculinity",q:"What motivates me most at work…",A:"I am motivated primarily by achievement, recognition, and professional advancement.",B:"I am motivated primarily by work-life balance, cooperation, and a supportive environment.",sA:1,sB:0},
+ {c:"MAS-02",d:"MAS",dn:"Masculinity",q:"On how rewards should be distributed…",A:"The best performers should receive significantly greater rewards than others.",B:"Rewards should be distributed more equally to maintain team cohesion.",sA:1,sB:0},
+ {c:"MAS-03",d:"MAS",dn:"Masculinity",q:"On competition among colleagues…",A:"Competition among colleagues is healthy and pushes everyone to perform better.",B:"Competition among colleagues creates unnecessary tension and weakens the team.",sA:1,sB:0},
+ {c:"MAS-04",d:"MAS",dn:"Masculinity",q:"When choosing between two job offers…",A:"I would rather have a demanding job that provides strong career growth.",B:"I would rather have a stable job that allows me to maintain a good personal and family life.",sA:1,sB:0},
+ {c:"MAS-05",d:"MAS",dn:"Masculinity",q:"When resolving conflicts at work…",A:"I prefer direct confrontation — the stronger argument should win.",B:"I prefer negotiation and compromise — preserving relationships matters most.",sA:1,sB:0},
+ {c:"UAI-01",d:"UAI",dn:"Uncertainty Avoidance",q:"Regarding rules and procedures…",A:"I feel more comfortable when there are clear rules and procedures for every situation.",B:"I feel more comfortable when rules are flexible and adaptable to specific situations.",sA:1,sB:0},
+ {c:"UAI-02",d:"UAI",dn:"Uncertainty Avoidance",q:"When facing unpredictable situations…",A:"Facing uncertain or unpredictable situations makes me anxious and I try to avoid them.",B:"I see uncertain or unpredictable situations as opportunities and I embrace them.",sA:1,sB:0},
+ {c:"UAI-03",d:"UAI",dn:"Uncertainty Avoidance",q:"On the unknown and unfamiliar…",A:"I believe that what is different or unknown is generally dangerous and should be approached carefully.",B:"I believe that what is different or unknown is generally interesting and should be explored.",sA:1,sB:0},
+ {c:"UAI-04",d:"UAI",dn:"Uncertainty Avoidance",q:"When starting a new project…",A:"I prefer to plan every detail in advance before starting.",B:"I prefer to begin and adjust the plan as the situation develops.",sA:1,sB:0},
+ {c:"UAI-05",d:"UAI",dn:"Uncertainty Avoidance",q:"On job definition and responsibilities…",A:"I am uncomfortable working without a clear job description and defined responsibilities.",B:"I am comfortable working in roles that are loosely defined and evolving.",sA:1,sB:0},
+ {c:"LTO-01",d:"LTO",dn:"Long-Term Orientation",q:"On sacrifice and future rewards…",A:"I am willing to sacrifice short-term comfort or rewards for long-term gains.",B:"I prefer to enjoy the results of my efforts now rather than wait for future rewards.",sA:1,sB:0},
+ {c:"LTO-02",d:"LTO",dn:"Long-Term Orientation",q:"On traditions vs. modern approaches [reverse scored]…",A:"Traditions and time-tested practices should be preserved even when they conflict with modern approaches.",B:"Traditions should be revised or replaced when modern approaches prove more effective.",sA:0,sB:1},
+ {c:"LTO-03",d:"LTO",dn:"Long-Term Orientation",q:"On adaptation vs. consistency…",A:"Adapting to changing circumstances is more important than maintaining consistency.",B:"Maintaining consistent principles and values matters more than adapting to every change.",sA:1,sB:0},
+ {c:"LTO-04",d:"LTO",dn:"Long-Term Orientation",q:"When evaluating success…",A:"I focus primarily on long-term sustainability and future outcomes.",B:"I focus primarily on immediate results and short-term performance.",sA:1,sB:0},
+ {c:"LTO-05",d:"LTO",dn:"Long-Term Orientation",q:"On investing in relationships…",A:"I believe that investing in relationships now will generate important benefits in the future.",B:"I believe in addressing immediate needs — future benefits are too uncertain to prioritize.",sA:1,sB:0},
+ {c:"IVR-01",d:"IVR",dn:"Indulgence",q:"On leisure and personal pleasures…",A:"Enjoying leisure, fun, and personal pleasures is an important part of life.",B:"Controlling one's impulses and pleasures reflects good character.",sA:1,sB:0},
+ {c:"IVR-02",d:"IVR",dn:"Indulgence",q:"On spending for happiness…",A:"I feel free to spend money on things that bring me happiness, even if not strictly necessary.",B:"I feel that spending on non-essential pleasures must be carefully controlled.",sA:1,sB:0},
+ {c:"IVR-03",d:"IVR",dn:"Indulgence",q:"On enjoying life…",A:"I generally feel that life is good and I can enjoy it without excessive guilt.",B:"Life requires discipline and indulging too much leads to negative consequences.",sA:1,sB:0},
+ {c:"IVR-04",d:"IVR",dn:"Indulgence",q:"On fun vs. duty…",A:"Having fun and enjoying social gatherings is something I actively prioritize.",B:"Social duties and responsibilities take priority over personal enjoyment.",sA:1,sB:0},
+ {c:"IVR-05",d:"IVR",dn:"Indulgence",q:"On personal happiness as a goal…",A:"Personal happiness is a legitimate goal that should guide my decisions.",B:"Fulfilling one's obligations matters more than personal happiness.",sA:1,sB:0},
+];
+const SD1=[
+ {q:"When I think about what matters most to me in my professional life…",o:{A:{t:"What drives me most is my people — those I have a real bond of trust and loyalty with.",lv:"PURPLE"},B:{t:"What drives me most is pushing myself — proving what I am capable of and getting where I set out to go on my own terms.",lv:"RED"},C:{t:"What drives me most is doing things right — fulfilling my responsibilities and acting with integrity.",lv:"BLUE"},D:{t:"What drives me most is getting results — advancing, growing, and seizing opportunities.",lv:"ORANGE"},E:{t:"What drives me most is that the people I work with are well — that no one gets left behind.",lv:"GREEN"}}},
+ {q:"In my work environment, what I value most is…",o:{A:{t:"A sense of family — real loyalty, looking out for each other, and a genuine sense of us.",lv:"PURPLE"},B:{t:"Respect — it should be clear who knows what they are doing and that effort and courage are recognised.",lv:"RED"},C:{t:"Order — clear rules, defined roles, and everyone doing what they are supposed to do.",lv:"BLUE"},D:{t:"Meritocracy — talent and results should open doors, not connections or titles.",lv:"ORANGE"},E:{t:"Inclusion — every voice counts and decisions are made with everyone in mind.",lv:"GREEN"}}},
+ {q:"When there is a conflict at work, my most natural reaction is to…",o:{A:{t:"Defend my own — if someone from my team or inner circle is in trouble, I am there without hesitation.",lv:"PURPLE"},B:{t:"Be direct — I say what I think without beating around the bush and defend my position clearly.",lv:"RED"},C:{t:"Follow the procedure — there are rules and protocols for these situations and the right thing is to respect them.",lv:"BLUE"},D:{t:"Find the most efficient solution — I assess the situation and propose what works best for everyone.",lv:"ORANGE"},E:{t:"Make sure everyone can say what they think before reaching any conclusion.",lv:"GREEN"}}},
+ {q:"The phrase that resonates with me most is…",o:{A:{t:"Blood is thicker than water — there are people I would do anything for without a second thought.",lv:"PURPLE"},B:{t:"Where there is a will there is a way — if you truly commit and do not give up, you can achieve anything.",lv:"RED"},C:{t:"Everything in its place — order, discipline, and following through are the foundation of everything.",lv:"BLUE"},D:{t:"Nothing ventured, nothing gained — you have to be smart, strategic, and seize every opportunity.",lv:"ORANGE"},E:{t:"People matter more than results — a success that leaves people hurt along the way is not a real success.",lv:"GREEN"}}},
+ {q:"When I face a difficult challenge, what helps me most is…",o:{A:{t:"Knowing I have my people — that I am not alone and those who matter to me are there.",lv:"PURPLE"},B:{t:"My determination — I am clear on what I want to achieve and that gives me the energy to keep going.",lv:"RED"},C:{t:"Having a clear plan — knowing exactly what needs to be done, in what order, and according to what criteria.",lv:"BLUE"},D:{t:"Analysing the situation properly — understanding what is happening and what the best path forward is.",lv:"ORANGE"},E:{t:"The team's support — together we go further and find better solutions than alone.",lv:"GREEN"}}},
+ {q:"What bothers me most at work is…",o:{A:{t:"Betrayal — someone you trust letting you down when you need them most.",lv:"PURPLE"},B:{t:"Weakness — someone not defending their position or letting themselves be walked over without doing anything.",lv:"RED"},C:{t:"Chaos — no clear rules, everything improvised, and no one being held accountable.",lv:"BLUE"},D:{t:"Mediocrity — effort and talent going unrecognised regardless of what people do.",lv:"ORANGE"},E:{t:"Injustice — people being treated unequally or some having privileges that others do not.",lv:"GREEN"}}},
+ {q:"For me, a good leader is someone who…",o:{A:{t:"Takes care of their people — who is there for their own, builds trust, and never leaves anyone behind.",lv:"PURPLE"},B:{t:"Decides with conviction — who knows what they want, makes decisions with confidence, and does not buckle under pressure.",lv:"RED"},C:{t:"Leads with principles — who is consistent, predictable, and applies the rules equally to everyone.",lv:"BLUE"},D:{t:"Delivers results — who has vision, knows where they are going, and takes the team to win.",lv:"ORANGE"},E:{t:"Genuinely cares for their people — not just about results, but about how each person on the team is doing.",lv:"GREEN"}}},
+ {q:"When I think about success, what matters most is…",o:{A:{t:"That the people I love are well and that the group I belong to prospers.",lv:"PURPLE"},B:{t:"Knowing what I have achieved is mine — the result of my effort, my talent, and my determination.",lv:"RED"},C:{t:"Having fulfilled my obligations and left things better than I found them.",lv:"BLUE"},D:{t:"Having achieved my goals, grown professionally, and enjoyed the fruits of my effort.",lv:"ORANGE"},E:{t:"That the people I have worked with are better for having done so.",lv:"GREEN"}}},
+ {q:"When it comes to rules and norms, my natural attitude is…",o:{A:{t:"I respect them if they come from people I respect — if I do not trust who sets them, I find them hard to follow.",lv:"PURPLE"},B:{t:"I need to understand why — if a rule makes sense I follow it, but not just because someone says I have to.",lv:"RED"},C:{t:"I respect them — rules give stability and without them everything becomes unpredictable and unfair.",lv:"BLUE"},D:{t:"I evaluate them — if they make sense and serve results, fine; if they are empty bureaucracy, I ignore them.",lv:"ORANGE"},E:{t:"I question them when they are unjust — a rule that harms someone for no good reason does not deserve to be followed.",lv:"GREEN"}}},
+ {q:"If I had to describe how I see the world, I would say…",o:{A:{t:"It is a place where real bonds are the most valuable thing — without loyalty and belonging, everything else loses meaning.",lv:"PURPLE"},B:{t:"It is a place where effort and determination make the difference — those who truly commit go far.",lv:"RED"},C:{t:"It is a place that needs order and solid values — without principles and discipline, everything falls apart.",lv:"BLUE"},D:{t:"It is a place full of opportunities for those with vision, hard work, and determination.",lv:"ORANGE"},E:{t:"It is a place where what happens to others also matters to me — I cannot be well if the people around me are not.",lv:"GREEN"}}},
+];
+const SD2=["When I analyse a problem, I instinctively look for how the different parts affect each other — I always think about the whole system.","I can understand why people very different from me think the way they do — I can see the internal logic of their world.","I care more about something working well than about who gets the credit or what position the person doing it holds.","I am comfortable with ambiguity and contradiction — I do not need things to be black or white to make decisions.","I learn continuously — not to achieve something specific, but because exploring and understanding the world moves me naturally.","When I encounter people with very different values from mine, my most natural reaction is curiosity.","I can make difficult decisions even if they generate discomfort or disagreement in the group.","I see all ways of thinking — including those very different from mine — as a necessary part of the whole, not as errors to be corrected."];
+
+const DC={PDI:"#9b6dbf",IDV:"#3a9fa8",MAS:"#e05c5c",UAI:"#e8a94a",LTO:"#4caf82",IVR:"#d4cf5a",
+          PURPLE:"#9b6dbf",RED:"#e05c5c",BLUE:"#3a9fa8",ORANGE:"#e8a94a",GREEN:"#4caf82",YELLOW:"#d4cf5a"};
+const PL={PDI:["Low PDI","High PDI"],IDV:["Collectivist","Individualist"],MAS:["Feminine","Masculine"],UAI:["Low UAI","High UAI"],LTO:["Short-Term","Long-Term"],IVR:["Restraint","Indulgence"]};
+
+let S={inst:{h:true,s:true},queue:[],cur:null,idx:0,p:{},ans:{h:{},s1:{},s2:{}},jI:{},jA:{},
+  R:JSON.parse(localStorage.getItem('tb_r')||'[]'),
+  J:JSON.parse(localStorage.getItem('tb_j')||'[]')};
+
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('sc-'+id).classList.add('active');window.scrollTo(0,0);}
+
+window.addEventListener('DOMContentLoaded',()=>{
+  const q=window.location.search;
+  if(q.includes('admin')) go('admin-login');
+  else if(q.includes('judge')) go('judge-intro');
+});
+
+function adminL(){if(document.getElementById('apw').value===APW){go('admin');renderAD();}else document.getElementById('lerr').style.display='block';}
+function aTab(id,btn){document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));btn.classList.add('on');['links','data','cvi'].forEach(t=>document.getElementById('at-'+t).classList.toggle('hidden',t!==id));if(id==='data')renderAD();if(id==='cvi')renderACVI();}
+function renderAD(){const r=S.R;document.getElementById('ascards').innerHTML=`<div class="sc"><div class="n">${r.length}</div><div class="l">Responses</div></div><div class="sc"><div class="n">${S.J.length}</div><div class="l">Judge Evals</div></div><div class="sc"><div class="n">${r.length<30?'Pilot':'Main'}</div><div class="l">Study Phase</div></div>`;document.getElementById('arlist').innerHTML=r.slice(-8).reverse().map(x=>`<div class="rrow"><strong>${x.pos||'—'}</strong><span>${x.ts?new Date(x.ts).toLocaleDateString():'—'}</span><span style="margin-left:auto;font-family:'Space Mono',monospace;font-size:0.56rem;">${new Date(x.ts).toLocaleDateString()}</span></div>`).join('')||'<p style="font-size:0.8rem;color:var(--soft);">No responses yet.</p>';}
+function renderACVI(){const all=S.J,n=all.length;if(!n){document.getElementById('acvi').innerHTML='<p style="color:var(--soft);">No judge evaluations yet.</p>';return;}const iCVI=HI.map((_,i)=>{const r=all.map(j=>(j.a[i]||{}).rel||0);return(r.filter(v=>v>=3).length/n).toFixed(2);});const sCVI=(iCVI.reduce((a,b)=>a+parseFloat(b),0)/iCVI.length).toFixed(2);document.getElementById('acvi').innerHTML=`<div class="cvibox"><h4>CVI Summary — N=${n} judges</h4><div class="cvigrid"><div class="cvii"><div class="cviv ${parseFloat(sCVI)>=.9?'ok':parseFloat(sCVI)>=.78?'warn':'fail'}">${sCVI}</div><div class="cvil">S-CVI/Ave (≥0.90)</div></div><div class="cvii"><div class="cviv ok">${iCVI.filter(v=>parseFloat(v)>=.78).length}/30</div><div class="cvil">Items I-CVI ≥ 0.78</div></div><div class="cvii"><div class="cviv warn">${iCVI.filter(v=>parseFloat(v)>=.6&&parseFloat(v)<.78).length}</div><div class="cvil">To revise</div></div><div class="cvii"><div class="cviv ${iCVI.filter(v=>parseFloat(v)<.6).length===0?'ok':'fail'}">${iCVI.filter(v=>parseFloat(v)<.6).length}</div><div class="cvil">To eliminate</div></div></div></div><div class="mnote">Lynn (1986); Polit &amp; Beck (2006). I-CVI ≥ 0.78 retain · 0.60–0.77 revise · &lt;0.60 eliminate.</div>`;}
+function cpL(id){navigator.clipboard.writeText(document.getElementById(id).textContent).then(()=>toast('Link copied ✓'));}
+function toggleI(w){S.inst[w]=!S.inst[w];document.getElementById('ic-'+w).classList.toggle('on',S.inst[w]);}
+function startA(){const pos=document.getElementById('p-pos').value;if(!pos){toast('Please select your role.');return;}if(!S.inst.h&&!S.inst.s){toast('Please select at least one instrument.');return;}S.p={id:'P'+Date.now(),pos,ts:new Date().toISOString()};S.queue=[];if(S.inst.h)S.queue.push('h');if(S.inst.s)S.queue.push('s');S.ans={h:{},s1:{},s2:{}};nextInst();}
+function nextInst(){if(!S.queue.length){showR();return;}S.cur=S.queue.shift();S.idx=0;go('questions');renderQ();}
+function items(){if(S.cur==='h')return HI;return SD1.map((x,i)=>({...x,type:'s1',i})).concat(SD2.map((x,i)=>({text:x,type:'s2',i})));}
+function renderQ(){const its=items(),tot=its.length,i=S.idx,it=its[i];const pct=Math.round(((i+1)/tot)*100);document.getElementById('qpf').style.width=pct+'%';document.getElementById('qpl').textContent=`Item ${i+1} of ${tot}`;document.getElementById('qil').textContent=S.cur==='h'?'Hofstede Instrument':it.type==='s1'?'Spiral Dynamics · Part 1':'Spiral Dynamics · Part 2 — YELLOW';document.getElementById('bp').style.display=i>0?'':'none';
+const lbl=S.cur==='h'?it.d:it.type==='s1'?Object.values(it.o)[0].lv:'YELLOW';
+let h=`<div class="qmeta"><span class="qb b-${lbl}">${lbl}</span><span class="qcnt">${i+1} / ${tot}</span></div>`;
+if(S.cur==='h'){const a=S.ans.h[i];h+=`<div class="qtxt">${it.q}</div><div class="opts"><div class="opt ${a==='A'?'sel':''}" onclick="aH(${i},'A')"><span class="olbl">A</span><span class="otxt">${it.A}</span></div><div class="opt ${a==='B'?'sel':''}" onclick="aH(${i},'B')"><span class="olbl">B</span><span class="otxt">${it.B}</span></div></div>`;}
+else if(it.type==='s1'){const a=S.ans.s1[it.i]||{};h+=`<div class="qtxt">${it.q}</div><p style="font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--mid);margin-bottom:11px;letter-spacing:.04em;">SELECT <strong style="color:var(--blue)">M</strong> = MOST describes you &nbsp;·&nbsp; <strong style="color:var(--red)">m</strong> = LEAST describes you</p><div class="opts">`;['A','B','C','D','E'].forEach(k=>{const o=it.o[k];h+=`<div class="opt ${a.M===k?'selM':''} ${a.m===k?'selm':''}"><span class="olbl">${k}</span><span class="otxt">${o.t}</span><div class="mlw"><button class="mlb ${a.M===k?'aM':''}" onclick="aS1(${it.i},'M','${k}',event)">M</button><button class="mlb ${a.m===k?'am':''}" onclick="aS1(${it.i},'m','${k}',event)">m</button></div></div>`;});h+=`</div>`;}
+else{const a=S.ans.s2[it.i];h+=`<div class="qtxt" style="font-style:normal;font-size:1rem;line-height:1.65;">${it.text}</div><div class="lklbl"><span>Does not describe me</span><span>Describes me completely</span></div><div class="lkopts">${[1,2,3,4,5].map(v=>`<button class="lkb ${a===v?'sel':''}" onclick="aS2(${it.i},${v})">${v}</button>`).join('')}</div>`;}
+document.getElementById('qa').innerHTML=h;}
+function aH(i,c){S.ans.h[i]=c;renderQ();}
+function aS1(i,t,k,e){e.stopPropagation();if(!S.ans.s1[i])S.ans.s1[i]={};const a=S.ans.s1[i];if(a[t]===k)delete a[t];else{if(t==='M'&&a.m===k)delete a.m;if(t==='m'&&a.M===k)delete a.M;a[t]=k;}renderQ();}
+function aS2(i,v){S.ans.s2[i]=v;renderQ();}
+function nextQ(){const its=items();if(S.idx<its.length-1){S.idx++;renderQ();window.scrollTo(0,0);}else nextInst();}
+function prevQ(){if(S.idx>0){S.idx--;renderQ();window.scrollTo(0,0);}}
+function scoreH(){const s={PDI:0,IDV:0,MAS:0,UAI:0,LTO:0,IVR:0};HI.forEach((it,i)=>{const a=S.ans.h[i];if(a==='A')s[it.d]+=it.sA;else if(a==='B')s[it.d]+=it.sB;});return s;}
+function scoreSD(){const lv={PURPLE:0,RED:0,BLUE:0,ORANGE:0,GREEN:0};SD1.forEach((it,i)=>{const a=S.ans.s1[i]||{};['A','B','C','D','E'].forEach(k=>{const l=it.o[k].lv;if(a.M===k)lv[l]=(lv[l]||0)+2;if(a.m===k)lv[l]=(lv[l]||0)-1;});});let y=0;SD2.forEach((_,i)=>{y+=(S.ans.s2[i]||0);});return{lv,y};}
+function showR(){go('results');const p=S.p;document.getElementById('rname').textContent=`${p.pos||'Participant'} — Cultural Values Profile`;document.getElementById('rdate').textContent=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+let html='',hS=null,sdS=null;
+if(S.inst.h){hS=scoreH();html+=`<div class="ir"><h3>🔷 Hofstede Cultural Values Profile</h3>`;['PDI','IDV','MAS','UAI','LTO','IVR'].forEach(d=>{const s=hS[d],pct=(s/5)*100,pole=s>=4?PL[d][1]:s<=1?PL[d][0]:'Mixed';html+=`<div class="dr"><div class="drl">${d}</div><div class="dbb"><div class="dbf" style="width:${pct}%;background:${DC[d]}"></div></div><div class="dv2">${s}/5</div><div class="dp">${pole}</div></div>`;});html+=`<p style="font-family:'Space Mono',monospace;font-size:0.56rem;color:var(--soft);margin-top:9px;">0–1 low · 2–3 mixed · 4–5 high orientation. Barreto (2026) pre-validation; Hofstede (2001); Taras et al. (2016).</p></div>`;}
+if(S.inst.s){sdS=scoreSD();const rows=[{n:'PURPLE',s:sdS.lv.PURPLE||0},{n:'RED',s:sdS.lv.RED||0},{n:'BLUE',s:sdS.lv.BLUE||0},{n:'ORANGE',s:sdS.lv.ORANGE||0},{n:'GREEN',s:sdS.lv.GREEN||0}];const top=rows.reduce((a,b)=>b.s>a.s?b:a);const yi=sdS.y>=34?'Very active (34–40)':sdS.y>=25?'Emerging (25–33)':sdS.y>=16?'Latent (16–24)':'Not yet activated';html+=`<div class="ir"><h3>🌀 Spiral Dynamics Values Profile</h3><div class="sds">`;rows.sort((a,b)=>b.s-a.s).forEach((r,i)=>{const pct=Math.max(0,((r.s+10)/30)*100);html+=`<div class="sdr ${i===0?'top':''}"><div class="sdn" style="color:${DC[r.n]}">${r.n}</div><div class="sdb"><div class="sdf" style="width:${pct}%;background:${DC[r.n]}"></div></div><div class="sds2">${r.s>=0?'+':''}${r.s}</div></div>`;});html+=`</div><div class="rgrid"><div class="rc"><h4>Centre of Gravity</h4><div class="val" style="color:${DC[top.n]}">${top.n}</div><div class="sub">Highest active level</div></div><div class="rc"><h4>YELLOW — Systemic</h4><div class="val">${sdS.y}/40</div><div class="sub">${yi}</div></div></div><p style="font-family:'Space Mono',monospace;font-size:0.56rem;color:var(--soft);">M=+2 / m=−1. Beck &amp; Cowan (1996); Graves (2005). No level is better or worse than another.</p></div>`;}
+document.getElementById('rc').innerHTML=html;
+const rec={...S.p,hofstede:hS,sd:sdS?{lv:sdS.lv,y:sdS.y}:null};S.R.push(rec);localStorage.setItem('tb_r',JSON.stringify(S.R));sendMail(rec,hS,sdS);}
+function sendMail(rec,h,sd){
+const payload={type:'participant',id:rec.id,role:rec.pos||'',timestamp:rec.ts,
+  PDI:h?h.PDI:'',IDV:h?h.IDV:'',MAS:h?h.MAS:'',UAI:h?h.UAI:'',LTO:h?h.LTO:'',IVR:h?h.IVR:'',
+  PURPLE:sd&&sd.lv?sd.lv.PURPLE||'':'',RED:sd&&sd.lv?sd.lv.RED||'':'',
+  BLUE:sd&&sd.lv?sd.lv.BLUE||'':'',ORANGE:sd&&sd.lv?sd.lv.ORANGE||'':'',
+  GREEN:sd&&sd.lv?sd.lv.GREEN||'':'',YELLOW:sd?sd.y||'':''};
+document.getElementById('sending').classList.add('show');
+fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+  .then(()=>{document.getElementById('sending').classList.remove('show');toast('Results saved and sent ✓');})
+  .catch(()=>{document.getElementById('sending').classList.remove('show');toast('Results saved locally');});}
+function csvHdr(){return'SessionID,Role,Timestamp,PDI,IDV,MAS,UAI,LTO,IVR,PURPLE,RED,BLUE,ORANGE,GREEN,YELLOW';}
+function csvRow(r){const h=r.hofstede||{},sd=r.sd||{lv:{},y:0};return[r.id,r.pos||'',r.ts,h.PDI||'',h.IDV||'',h.MAS||'',h.UAI||'',h.LTO||'',h.IVR||'',sd.lv.PURPLE||'',sd.lv.RED||'',sd.lv.BLUE||'',sd.lv.ORANGE||'',sd.lv.GREEN||'',sd.y||''].join(',');}
+function dlCSV(){const p=S.p,h=S.inst.h?scoreH():null,sd=S.inst.s?scoreSD():null;const rec={...p,hofstede:h,sd:sd?{lv:sd.lv,y:sd.y}:null};dl([csvHdr(),csvRow(rec)].join('\n'),`Barreto2026_${p.pos||'anon'}_${p.id}.csv`);}
+function dlAll(){dl([csvHdr(),...S.R.map(csvRow)].join('\n'),`Barreto2026_AllResponses_${Date.now()}.csv`);}
+function dlJudge(){const hdr=['JudgeID','Name','Institution','Expertise','Timestamp',...HI.map(x=>x.c+'_REL'),...HI.map(x=>x.c+'_CLA'),...HI.map(x=>x.c+'_CUL'),...HI.map(x=>x.c+'_DES')];const rows=[hdr.join(','),...S.J.map(j=>{const r=[j.id,j.name,j.inst,j.exp,j.ts];HI.forEach((_,i)=>r.push((j.a[i]||{}).rel||''));HI.forEach((_,i)=>r.push((j.a[i]||{}).cla||''));HI.forEach((_,i)=>r.push((j.a[i]||{}).cul||''));HI.forEach((_,i)=>r.push((j.a[i]||{}).des||''));return r.join(',');})];dl(rows.join('\n'),`Barreto2026_CVI_${Date.now()}.csv`);}
+function dl(csv,fn){const b=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;a.click();}
+function startJ(){const n=document.getElementById('jn').value.trim(),i=document.getElementById('ji').value.trim();if(!n||!i){toast('Please fill in name and institution.');return;}S.jI={id:'J'+Date.now(),name:n,inst:i,exp:document.getElementById('je').value,email:document.getElementById('jem').value,ts:new Date().toISOString()};S.jA={};go('judge-eval');renderJ(0);}
+function renderJ(idx){const tot=HI.length,it=HI[idx],pct=Math.round(((idx+1)/tot)*100);document.getElementById('jpf').style.width=pct+'%';document.getElementById('jpl').textContent=`Item ${idx+1} of ${tot}`;const a=S.jA[idx]||{};const crits=[{k:'rel',l:'(1) Relevance to dimension',d:'1 = Not relevant · 2 = Somewhat · 3 = Quite · 4 = Very relevant'},{k:'cla',l:'(2) Clarity of wording',d:'1 = Unclear · 2 = Somewhat · 3 = Quite clear · 4 = Very clear'},{k:'cul',l:'(3) Cultural sensitivity',d:'1 = High risk · 2 = Moderate · 3 = Low · 4 = No risk'},{k:'des',l:'(4) Social desirability risk',d:'1 = High risk · 2 = Moderate · 3 = Low · 4 = No risk'}];let ch='';crits.forEach(c=>{const btns=[1,2,3,4].map(v=>`<button class="cb ${a[c.k]===v?'sel':''}" onclick="jR(${idx},'${c.k}',${v})">${v}</button>`).join('');ch+=`<div class="jc"><h5>${c.l}<br><span style="font-weight:400;opacity:0.65;font-size:0.5rem;">${c.d}</span></h5><div class="cs">${btns}</div></div>`;});
+document.getElementById('jarea').innerHTML=`<p class="sl" style="margin-bottom:8px;">Item Evaluation</p><div class="ji"><div class="jih"><span class="jcode">${it.c}</span><span class="qb b-${it.d}">${it.dn}</span></div><div class="jopts"><p><strong style="color:var(--teal-d);">A:</strong> ${it.A}</p><p><strong style="color:var(--soft);">B:</strong> ${it.B}</p></div><div class="jcrit">${ch}</div></div><div class="nbtns">${idx>0?`<button class="btn btn-o" onclick="renderJ(${idx-1})">← Previous</button>`:''}${idx<tot-1?`<button class="btn btn-p" onclick="renderJ(${idx+1})">Next →</button>`:`<button class="btn btn-p" onclick="submitJ()">Submit Evaluation ✓</button>`}</div>`;
+window.scrollTo(0,0);}
+function jR(i,k,v){if(!S.jA[i])S.jA[i]={};S.jA[i][k]=v;renderJ(i);}
+function submitJ(){const rec={...S.jI,a:S.jA};S.J.push(rec);localStorage.setItem('tb_j',JSON.stringify(S.J));const n=S.J.length;const iCVI=HI.map((_,i)=>{const r=S.J.map(j=>(j.a[i]||{}).rel||0);return(r.filter(v=>v>=3).length/n).toFixed(2);});const sCVI=(iCVI.reduce((a,b)=>a+parseFloat(b),0)/iCVI.length).toFixed(2);fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'judge',id:S.jI.id,name:S.jI.name,inst:S.jI.inst,exp:S.jI.exp,email:S.jI.email,answers:S.jA})}).catch(()=>{});
+document.getElementById('jarea').innerHTML=`<p class="sl">Submitted</p><h2 class="stitle">Thank you, ${S.jI.name.split(' ')[0]}.</h2><p class="ssub">Your evaluation has been recorded and sent to the research team.</p><div class="cvibox"><h4>Current CVI Summary — N=${n} judge(s)</h4><div class="cvigrid"><div class="cvii"><div class="cviv ${parseFloat(sCVI)>=.9?'ok':parseFloat(sCVI)>=.78?'warn':'fail'}">${sCVI}</div><div class="cvil">S-CVI/Ave (&ge;0.90)</div></div><div class="cvii"><div class="cviv ok">${iCVI.filter(v=>parseFloat(v)>=.78).length}/30</div><div class="cvil">Items &ge; 0.78</div></div><div class="cvii"><div class="cviv ${iCVI.filter(v=>parseFloat(v)<.6).length===0?'ok':'fail'}">${iCVI.filter(v=>parseFloat(v)<.6).length}</div><div class="cvil">To eliminate</div></div></div></div><div class="mnote">Lynn (1986); Polit &amp; Beck (2006). I-CVI &ge; 0.78 retain &middot; 0.60&ndash;0.77 revise &middot; &lt;0.60 eliminate.</div><div class="brow"><button class="btn btn-o" onclick="go('landing')">&#8592; Start Over</button></div>`;
+go('judge-results');
+}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+</script>
+</body>
+</html>
