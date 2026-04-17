@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Timebuyers — Cultural Values Assessment</title>
+<title>VICAR — Values Integration, Culture Awareness & Recognition</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -240,40 +240,41 @@ select option{background:white;}
 <nav>
   <div class="nl" onclick="go('landing')">
     <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
-    <div><div class="nb">Timebuyers</div><div class="ns">Cultural Assessment</div></div>
+    <div><div class="nb">VICAR</div><div class="ns">Proprietary · 2026</div></div>
   </div>
 </nav>
 <div class="hero">
   <div class="h-ring">
     <svg viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="26" stroke="#3a9fa8" stroke-width="1.5" fill="#eaf6f7"/><path d="M28 28 Q38 19 35 9 Q24 3 14 9 Q4 19 10 32 Q16 44 28 40 Q40 35 38 22 Q32 12 22 16" stroke="#3a9fa8" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M28 28 Q33 23 32 16 Q26 12 20 16 Q14 22 18 30" stroke="#2c7d85" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.5"/><circle cx="28" cy="28" r="4" fill="#3a9fa8" opacity="0.3"/><circle cx="28" cy="28" r="2" fill="#2c7d85"/></svg>
   </div>
-  <p class="ey">Barreto (2026) · Research Platform</p>
-  <h1 class="ht">Cultural Values<br><em>Assessment</em></h1>
-  <p class="hs">Integrated Hofstede–Spiral Dynamics framework for organizational communication research. Select your role to begin.</p>
-  <div class="mgrid">
+  <p class="ey">VICAR · Proprietary Diagnostic Platform</p>
+  <h1 class="ht">Values Integration,<br><em>Culture Awareness</em><br>&amp; Recognition</h1>
+  <p class="hs">VICAR is a proprietary diagnostic model for organizational communication. Select your role to begin.</p>
+  <div class="mgrid" style="max-width:400px;">
     <div class="mc" onclick="go('intake')">
-      <span class="mc-ic">🧭</span>
-      <h3>Participant Assessment</h3>
-      <p>Complete the Hofstede and Spiral Dynamics instruments and receive your personal cultural values profile.</p>
-      <span class="mc-tag">Questionnaire</span>
+      <span class="mc-ic">&#x1F9ED;</span>
+      <h3>Begin Assessment</h3>
+      <p>Complete both VICAR instruments and receive your personal profile. Approx. 15&#x2013;20 minutes.</p>
+      <span class="mc-tag">Single session</span>
     </div>
     <div class="mc" onclick="go('judge-intro')">
-      <span class="mc-ic">🔬</span>
-      <h3>Expert Judge — CVI Panel</h3>
-      <p>Evaluate instrument items for content validity as part of the academic validation process.</p>
-      <span class="mc-tag">Phase 2 · Validation</span>
+      <span class="mc-ic">&#x1F52C;</span>
+      <h3>Expert Judge</h3>
+      <p>Evaluate instrument items for content validity as part of the validation process.</p>
+      <span class="mc-tag">CVI Panel</span>
     </div>
   </div>
 </div>
-<div class="foot">Timebuyers Cultural Assessment · © 2026</div>
+<div class="foot">VICAR · Values Integration, Culture Awareness &amp; Recognition · © 2026</div>
 </div>
+
 
 <!-- INTAKE -->
 <div class="screen" id="sc-intake">
 <nav>
   <div class="nl" onclick="go('landing')">
     <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
-    <div><div class="nb">Timebuyers</div><div class="ns">Registration</div></div>
+    <div><div class="nb">VICAR</div><div class="ns">Registration</div></div>
   </div>
   <div class="np"><div class="pb"><div class="pf" style="width:5%"></div></div><div class="pt">Step 1 of 4</div></div>
 </nav>
@@ -283,10 +284,20 @@ select option{background:white;}
   <p class="ssub">Only your operational role is collected here. All other data is obtained through Safety and HR records.</p>
 
   <div class="card">
-    <p class="sl" style="margin-bottom:6px;">Operational Role</p>
-    <p class="fnote">This is the only data collected here. All other information (experience, nationality, flight hours) is obtained through existing Safety and HR records and matched via your session code during the interview.</p>
+    <p class="sl" style="margin-bottom:6px;">Flight Reference &amp; Role</p>
+    <p class="fnote">Only your role and flight reference are collected. No name, employee ID, or personal contact data is required. Your session code is matched with existing Safety and HR records during the structured interview only.</p>
+    <div class="fg2" style="margin-bottom:14px;">
+      <div class="fg">
+        <label>Flight Number *</label>
+        <input id="p-flt" placeholder="e.g. VJ123" maxlength="10" style="text-transform:uppercase;">
+      </div>
+      <div class="fg">
+        <label>Flight Date *</label>
+        <input id="p-date" type="date">
+      </div>
+    </div>
     <div class="fg" style="max-width:280px;">
-      <label>Select your role *</label>
+      <label>Operational Role *</label>
       <select id="p-pos">
         <option value="">Select…</option>
         <option value="CAPT">CAPT — Captain</option>
@@ -296,30 +307,79 @@ select option{background:white;}
         <option value="Other">Other</option>
       </select>
     </div>
-    <div class="mnote" style="margin-top:14px;"><strong>Privacy:</strong> No name, ID, or contact data is collected. Your session code is generated automatically on completion and matched with operational records only during the structured interview (Barreto, 2026).</div>
+    <div class="mnote" style="margin-top:14px;"><strong>Privacy:</strong> No name, employee ID, or contact data is collected. A random session code (TB-XXXXX) is generated upon completion. Your flight reference is used only to match operational records during the structured interview. All responses are strictly confidential.</div>
   </div>
 
-  <div class="dv"></div>
-  <p class="sl">Select Instruments</p>
-  <div class="igrid">
-    <div class="ic on" id="ic-h" onclick="toggleI('h')">
-      <h3>🔷 Hofstede Individual Instrument</h3>
-      <p>30 items · Forced choice A/B · 6 dimensions: PDI, IDV, MAS, UAI, LTO, IVR</p>
-      <span class="ibadge">Barreto (2026) · Pre-validation</span>
-    </div>
-    <div class="ic on" id="ic-s" onclick="toggleI('s')">
-      <h3>🌀 Spiral Dynamics Assessment</h3>
-      <p>18 items · Part 1: Most/Least · Part 2: Likert 1–5 · PURPLE → YELLOW</p>
-      <span class="ibadge">Beck &amp; Cowan (1996)</span>
-    </div>
-  </div>
-  <div class="mnote"><strong>Methodological note:</strong> The Hofstede Individual Instrument (Barreto, 2026) is in pre-validation phase — results are indicative. Spiral Dynamics is based on Beck and Cowan (1996) and Graves (2005). All responses are used exclusively for academic research.</div>
+  <div class="mnote" style="margin-top:14px;"><strong>Assessment structure:</strong> The VICAR diagnostic comprises two instruments — Values Integration (18 items) and Cultural Awareness (30 items) — administered in sequence. Total estimated time: 15–20 minutes.</div>
   <div class="brow">
     <button class="btn btn-o" onclick="go('landing')">← Back</button>
-    <button class="btn btn-p" onclick="startA()">Begin Assessment →</button>
+    <button class="btn btn-p" onclick="startSession()">Begin Assessment →</button>
   </div>
 </div></div>
-<div class="foot">Timebuyers Cultural Assessment · © 2026</div>
+<div class="foot">VICAR · Values Integration, Culture Awareness &amp; Recognition · © 2026</div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="screen" id="sc-dashboard">
+<nav>
+  <div class="nl" onclick="go('landing')">
+    <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
+    <div><div class="nb">VICAR</div><div class="ns">Session Dashboard</div></div>
+  </div>
+</nav>
+<div class="content"><div class="wrap">
+  <p class="sl">Session Progress</p>
+  <h2 class="stitle" id="db-title">Your VICAR Session</h2>
+  <div style="background:var(--surface);border:2px solid var(--teal);border-radius:var(--radius);padding:16px 20px;margin-bottom:20px;text-align:center;">
+    <p style="font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:.12em;color:var(--teal-d);margin-bottom:4px;">YOUR SESSION CODE</p>
+    <div id="db-code" style="font-family:'Space Mono',monospace;font-size:2rem;font-weight:700;color:var(--text);letter-spacing:.15em;"></div>
+    <p style="font-size:0.72rem;color:var(--mid);margin-top:6px;">Keep this code — you will need it to resume your session.</p>
+  </div>
+  <div id="db-instruments" style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;"></div>
+  <div id="db-actions" class="brow"></div>
+</div></div>
+<div class="foot">VICAR · © 2026</div>
+</div>
+
+
+
+<!-- INSTRUMENT SELECT -->
+<div class="screen" id="sc-select">
+<nav>
+  <div class="nl">
+    <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
+    <div><div class="nb">VICAR</div><div class="ns">Select Instrument</div></div>
+  </div>
+  <div class="np"><div class="pb"><div class="pf" id="sel-pf" style="width:33%"></div></div><div class="pt" id="sel-pt">Step 2 of 3</div></div>
+</nav>
+<div class="content"><div class="wrap">
+  <p class="sl" id="sel-eyebrow">Choose Your First Instrument</p>
+  <h2 class="stitle" id="sel-title">Which would you like to complete first?</h2>
+  <p class="ssub">Both instruments are required. Select one to begin.</p>
+  <div class="igrid" id="sel-grid"></div>
+  <div class="mnote" style="margin-top:14px;">The VICAR diagnostic instruments are proprietary tools. Results are used exclusively for organizational communication and CRM research.</div>
+</div></div>
+<div class="foot">VICAR &copy; 2026</div>
+</div>
+
+<!-- BETWEEN INSTRUMENTS -->
+<div class="screen" id="sc-between">
+<nav>
+  <div class="nl">
+    <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
+    <div><div class="nb">VICAR</div><div class="ns">Well done</div></div>
+  </div>
+</nav>
+<div class="hero">
+  <div class="h-ring" style="width:64px;height:64px;">
+    <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="#4caf82" stroke-width="1.5" fill="#e8f5ef"/><path d="M12 20 L18 26 L28 14" stroke="#4caf82" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <p class="ey" id="bt-eyebrow">Part 1 Complete</p>
+  <h2 class="ht" style="font-size:1.8rem;">Well done.</h2>
+  <p class="hs" id="bt-sub">Take a moment. The second instrument begins when you are ready.</p>
+  <button class="btn btn-p" style="margin-top:8px;" onclick="startSecondInstrument()">Continue to Part 2 &rarr;</button>
+</div>
+<div class="foot">VICAR &copy; 2026</div>
 </div>
 
 <!-- QUESTIONS -->
@@ -345,7 +405,7 @@ select option{background:white;}
 <nav>
   <div class="nl">
     <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
-    <div><div class="nb">Timebuyers</div><div class="ns">Your Cultural Profile</div></div>
+    <div><div class="nb">VICAR</div><div class="ns">Your Profile</div></div>
   </div>
 </nav>
 <div class="rw"><div class="wrap">
@@ -353,12 +413,12 @@ select option{background:white;}
   <div id="rc"></div>
   <div class="exs"><h3>Download Your Results</h3>
     <div class="brow">
-      <button class="btn btn-p" onclick="dlCSV()">⬇ Download CSV</button>
+      <button class="btn btn-p" onclick="dlPDF()">⬇ Download PDF Report</button>
       <button class="btn btn-o" onclick="go('landing')">← Start New</button>
     </div>
   </div>
 </div></div>
-<div class="foot">Timebuyers Cultural Assessment · © 2026 · Data used exclusively for academic research (Barreto, 2026)</div>
+<div class="foot">VICAR · Values Integration, Culture Awareness &amp; Recognition · © 2026 · Data used exclusively for organizational communication research</div>
 </div>
 
 <!-- JUDGE INTRO -->
@@ -366,7 +426,7 @@ select option{background:white;}
 <nav>
   <div class="nl" onclick="go('landing')">
     <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
-    <div><div class="nb">Timebuyers</div><div class="ns">Expert Judge · CVI Panel</div></div>
+    <div><div class="nb">VICAR</div><div class="ns">Expert Judge · CVI Panel</div></div>
   </div>
 </nav>
 <div class="content"><div class="wrap">
@@ -375,7 +435,7 @@ select option{background:white;}
   <p class="ssub">Your evaluations contribute to the Content Validity Index (CVI) calculation for the Hofstede Individual Instrument.</p>
 
   <div class="ibox">
-    <strong>About this instrument:</strong> The Hofstede Individual Instrument (Barreto, 2026) is an original psychometric tool designed to operationalize Hofstede's six cultural value dimensions at the individual level. It is currently in <strong>Phase 1 (Item Design)</strong> and requires expert panel validation (Phase 2) before field deployment. The instrument is part of the research framework <em>Predicting Organizational Communication Failure: An Integrated Hofstede–Spiral Dynamics Framework</em> (Rafael Barreto Plasencia, 2026), and will serve as the primary data collection tool for a Southeast Asian low-cost carrier (SALCC) field study. It is designed for independent publication upon completion of full psychometric validation. Theoretical foundations: Hofstede (2001); Taras et al. (2016); Beck &amp; Cowan (1996).
+    <strong>About this instrument:</strong> The Cultural Awareness instrument is an original psychometric tool designed to operationalize Hofstede's six cultural value dimensions at the individual level. It is currently in <strong>Phase 1 (Item Design)</strong> and requires expert panel validation (Phase 2) before field deployment. The instrument is part of the research framework <em>Predicting Organizational Communication Failure: The VICAR Model</em> (2026), and will serve as the primary data collection tool for a Southeast Asian low-cost carrier (SALCC) field study. It is designed for independent publication upon completion of full psychometric validation. Theoretical foundations: Hofstede (2001); Taras et al. (2016); Beck &amp; Cowan (1996).
   </div>
 
   <div class="fg2" style="margin-top:16px;">
@@ -390,7 +450,7 @@ select option{background:white;}
     <button class="btn btn-p" onclick="startJ()">Begin Evaluation →</button>
   </div>
 </div></div>
-<div class="foot">Timebuyers Cultural Assessment · © 2026</div>
+<div class="foot">VICAR · Values Integration, Culture Awareness &amp; Recognition · © 2026</div>
 </div>
 
 <!-- JUDGE EVAL -->
@@ -410,7 +470,7 @@ select option{background:white;}
 <nav>
   <div class="nl" onclick="go('landing')">
     <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
-    <div><div class="nb">Timebuyers</div><div class="ns">Administrator</div></div>
+    <div><div class="nb">VICAR</div><div class="ns">Administrator</div></div>
   </div>
 </nav>
 <div class="ac">
@@ -431,31 +491,33 @@ select option{background:white;}
 <nav>
   <div class="nl">
     <div class="lr"><svg viewBox="0 0 24 24" fill="none"><path d="M12 12 Q16 8 15 4 Q10 1 6 4 Q2 8 5 14 Q8 19 13 17 Q18 14 17 9 Q14 5 10 7" stroke="#3a9fa8" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#3a9fa8" opacity="0.5"/></svg></div>
-    <div><div class="nb">Timebuyers</div><div class="ns">Research Data Panel</div></div>
+    <div><div class="nb">VICAR</div><div class="ns">Admin Panel</div></div>
   </div>
   <button class="btn btn-o" style="margin-left:auto;font-size:0.6rem;padding:7px 13px;" onclick="go('landing')">Exit</button>
 </nav>
 <div class="apc"><div class="wrap">
-  <p class="sl">Administrator · Barreto (2026)</p>
-  <h2 class="stitle" style="font-size:1.4rem;margin-bottom:16px;">Research Data Panel</h2>
+  <p class="sl">VICAR · Administrator</p>
+  <h2 class="stitle" style="font-size:1.4rem;margin-bottom:16px;">VICAR Admin Panel</h2>
   <div class="tabs">
     <button class="tab on" onclick="aTab('links',this)">Invitation Links</button>
     <button class="tab" onclick="aTab('data',this)">Responses</button>
+    <button class="tab" onclick="aTab('matrix',this)">VICAR Matrix</button>
     <button class="tab" onclick="aTab('cvi',this)">CVI Summary</button>
   </div>
+  <div id="at-matrix" class="hidden"></div>
   <div id="at-links">
     <div class="invbox"><h4>🧭 Participant Link</h4><div class="lrow"><code id="lnkp">https://www.timebuyers.net/assessment/</code><button class="cpbtn" onclick="cpL('lnkp')">Copy</button></div><p style="font-size:0.7rem;color:var(--soft);">Send to research participants (VietJet/SALCC staff).</p></div>
     <div class="invbox"><h4>🔬 Expert Judge Link</h4><div class="lrow"><code id="lnkj">https://www.timebuyers.net/assessment/?judge</code><button class="cpbtn" onclick="cpL('lnkj')">Copy</button></div><p style="font-size:0.7rem;color:var(--soft);">Send to expert panel. Minimum 5, ideally 7–10 judges (Lynn, 1986).</p></div>
     <div class="invbox"><h4>📧 Email Template</h4>
       <div style="background:var(--surface2);border-radius:8px;padding:12px;font-size:0.75rem;color:var(--mid);line-height:1.75;border:1px solid var(--border);">
-        Subject: Invitation — Cultural Values Research Study (Barreto, 2026)<br><br>Dear [Name],<br><br>You are invited to participate in a research study on cultural values and organizational communication (approx. 20 minutes).<br><br>Access: <strong>https://www.timebuyers.net/assessment/</strong><br><br>All responses are confidential. Data used exclusively for academic research.<br><br>Thank you,<br>Rafael Barreto Plasencia · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c7b5a6a1a6a5a6b5b5a2b3a887b3aeaaa2a5b2bea2b5b4e9a9a2b3">[email&#160;protected]</a>
+        Subject: Invitation — VICAR Assessment<br><br>Dear [Name],<br><br>You are invited to participate in a research study on cultural values and organizational communication (approx. 20 minutes).<br><br>Access: <strong>https://www.timebuyers.net/assessment/</strong><br><br>All responses are confidential. Data used exclusively for academic research.<br><br>Thank you,<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c7b5a6a1a6a5a6b5b5a2b3a887b3aeaaa2a5b2bea2b5b4e9a9a2b3">[email&#160;protected]</a>
       </div>
     </div>
   </div>
   <div id="at-data" class="hidden"><div class="sgrid" id="ascards"></div><div class="rlist" id="arlist"></div><div class="brow"><button class="btn btn-p" onclick="dlAll()">⬇ Export All Responses (CSV)</button><button class="btn btn-o" onclick="dlJudge()">⬇ Export CVI Data (CSV)</button></div></div>
   <div id="at-cvi" class="hidden"><div id="acvi"></div></div>
 </div></div>
-<div class="foot">Timebuyers Research Data Panel · © 2026</div>
+<div class="foot">VICAR Admin Panel · Restricted access</div>
 </div>
 
 </div>
@@ -515,7 +577,7 @@ const DC={PDI:"#9b6dbf",IDV:"#3a9fa8",MAS:"#e05c5c",UAI:"#e8a94a",LTO:"#4caf82",
           PURPLE:"#9b6dbf",RED:"#e05c5c",BLUE:"#3a9fa8",ORANGE:"#e8a94a",GREEN:"#4caf82",YELLOW:"#d4cf5a"};
 const PL={PDI:["Low PDI","High PDI"],IDV:["Collectivist","Individualist"],MAS:["Feminine","Masculine"],UAI:["Low UAI","High UAI"],LTO:["Short-Term","Long-Term"],IVR:["Restraint","Indulgence"]};
 
-let S={inst:{h:true,s:true},queue:[],cur:null,idx:0,p:{},ans:{h:{},s1:{},s2:{}},jI:{},jA:{},
+let S={cur:null,idx:0,p:{},done:{h:false,s:false},scores:{h:null,sd:null},ans:{h:{},s1:{},s2:{}},jI:{},jA:{},
   R:JSON.parse(localStorage.getItem('tb_r')||'[]'),
   J:JSON.parse(localStorage.getItem('tb_j')||'[]')};
 
@@ -528,17 +590,58 @@ window.addEventListener('DOMContentLoaded',()=>{
 });
 
 function adminL(){if(document.getElementById('apw').value===APW){go('admin');renderAD();}else document.getElementById('lerr').style.display='block';}
-function aTab(id,btn){document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));btn.classList.add('on');['links','data','cvi'].forEach(t=>document.getElementById('at-'+t).classList.toggle('hidden',t!==id));if(id==='data')renderAD();if(id==='cvi')renderACVI();}
-function renderAD(){const r=S.R;document.getElementById('ascards').innerHTML=`<div class="sc"><div class="n">${r.length}</div><div class="l">Responses</div></div><div class="sc"><div class="n">${S.J.length}</div><div class="l">Judge Evals</div></div><div class="sc"><div class="n">${r.length<30?'Pilot':'Main'}</div><div class="l">Study Phase</div></div>`;document.getElementById('arlist').innerHTML=r.slice(-8).reverse().map(x=>`<div class="rrow"><strong>${x.pos||'—'}</strong><span>${x.ts?new Date(x.ts).toLocaleDateString():'—'}</span><span style="margin-left:auto;font-family:'Space Mono',monospace;font-size:0.56rem;">${new Date(x.ts).toLocaleDateString()}</span></div>`).join('')||'<p style="font-size:0.8rem;color:var(--soft);">No responses yet.</p>';}
+function aTab(id,btn){document.querySelectorAll('.tab').forEach(b=>b.classList.remove('on'));btn.classList.add('on');['links','data','matrix','cvi'].forEach(t=>document.getElementById('at-'+t).classList.toggle('hidden',t!==id));if(id==='data')renderAD();if(id==='cvi')renderACVI();if(id==='matrix')renderMatrix();}
+function renderAD(){const r=S.R;document.getElementById('ascards').innerHTML=`<div class="sc"><div class="n">${r.length}</div><div class="l">Responses</div></div><div class="sc"><div class="n">${S.J.length}</div><div class="l">Judge Evals</div></div><div class="sc"><div class="n">${r.length<30?'Pilot':'Main'}</div><div class="l">Study Phase</div></div>`;document.getElementById('arlist').innerHTML=r.slice(-8).reverse().map(x=>`<div class="rrow"><strong style="font-family:'Space Mono',monospace;font-size:0.68rem;color:var(--teal-d);">${x.id||'—'}</strong><span>${x.pos||'—'}</span><span style="font-family:'Space Mono',monospace;font-size:0.58rem;">${x.flt||'—'}</span><span>${x.date||''}</span><span style="margin-left:auto;font-family:'Space Mono',monospace;font-size:0.56rem;">${x.ts?new Date(x.ts).toLocaleDateString():'—'}</span></div>`).join('')||'<p style="font-size:0.8rem;color:var(--soft);">No responses yet.</p>';}
 function renderACVI(){const all=S.J,n=all.length;if(!n){document.getElementById('acvi').innerHTML='<p style="color:var(--soft);">No judge evaluations yet.</p>';return;}const iCVI=HI.map((_,i)=>{const r=all.map(j=>(j.a[i]||{}).rel||0);return(r.filter(v=>v>=3).length/n).toFixed(2);});const sCVI=(iCVI.reduce((a,b)=>a+parseFloat(b),0)/iCVI.length).toFixed(2);document.getElementById('acvi').innerHTML=`<div class="cvibox"><h4>CVI Summary — N=${n} judges</h4><div class="cvigrid"><div class="cvii"><div class="cviv ${parseFloat(sCVI)>=.9?'ok':parseFloat(sCVI)>=.78?'warn':'fail'}">${sCVI}</div><div class="cvil">S-CVI/Ave (≥0.90)</div></div><div class="cvii"><div class="cviv ok">${iCVI.filter(v=>parseFloat(v)>=.78).length}/30</div><div class="cvil">Items I-CVI ≥ 0.78</div></div><div class="cvii"><div class="cviv warn">${iCVI.filter(v=>parseFloat(v)>=.6&&parseFloat(v)<.78).length}</div><div class="cvil">To revise</div></div><div class="cvii"><div class="cviv ${iCVI.filter(v=>parseFloat(v)<.6).length===0?'ok':'fail'}">${iCVI.filter(v=>parseFloat(v)<.6).length}</div><div class="cvil">To eliminate</div></div></div></div><div class="mnote">Lynn (1986); Polit &amp; Beck (2006). I-CVI ≥ 0.78 retain · 0.60–0.77 revise · &lt;0.60 eliminate.</div>`;}
 function cpL(id){navigator.clipboard.writeText(document.getElementById(id).textContent).then(()=>toast('Link copied ✓'));}
 function toggleI(w){S.inst[w]=!S.inst[w];document.getElementById('ic-'+w).classList.toggle('on',S.inst[w]);}
-function startA(){const pos=document.getElementById('p-pos').value;if(!pos){toast('Please select your role.');return;}if(!S.inst.h&&!S.inst.s){toast('Please select at least one instrument.');return;}S.p={id:'P'+Date.now(),pos,ts:new Date().toISOString()};S.queue=[];if(S.inst.h)S.queue.push('h');if(S.inst.s)S.queue.push('s');S.ans={h:{},s1:{},s2:{}};nextInst();}
-function nextInst(){if(!S.queue.length){showR();return;}S.cur=S.queue.shift();S.idx=0;go('questions');renderQ();}
-function items(){if(S.cur==='h')return HI;return SD1.map((x,i)=>({...x,type:'s1',i})).concat(SD2.map((x,i)=>({text:x,type:'s2',i})));}
-function renderQ(){const its=items(),tot=its.length,i=S.idx,it=its[i];const pct=Math.round(((i+1)/tot)*100);document.getElementById('qpf').style.width=pct+'%';document.getElementById('qpl').textContent=`Item ${i+1} of ${tot}`;document.getElementById('qil').textContent=S.cur==='h'?'Hofstede Instrument':it.type==='s1'?'Spiral Dynamics · Part 1':'Spiral Dynamics · Part 2 — YELLOW';document.getElementById('bp').style.display=i>0?'':'none';
+function startSession(){
+  const pos=document.getElementById('p-pos').value;
+  const flt=document.getElementById('p-flt').value.trim().toUpperCase();
+  const dt=document.getElementById('p-date').value;
+  if(!pos){toast('Please select your role.');return;}
+  if(!flt){toast('Please enter the flight number.');return;}
+  if(!dt){toast('Please enter the flight date.');return;}
+  const tbCode='TB-'+Math.floor(10000+Math.random()*90000);
+  S.p={id:tbCode,pos,flt,date:dt,ts:new Date().toISOString()};
+  S.done={h:false,s:false};
+  S.scores={h:null,sd:null};
+  S.ans={h:{},s1:{},s2:{}};
+  renderSelectScreen();
+  go('select');
+}
+
+
+function renderSelectScreen(){
+  var grid=document.getElementById('sel-grid');
+  var firstTime=!S.done.h&&!S.done.s;
+  document.getElementById('sel-eyebrow').textContent=firstTime?'Choose Your First Instrument':'One More to Go';
+  document.getElementById('sel-title').textContent=firstTime?'Which would you like to complete first?':'Complete the remaining instrument to finish your assessment.';
+  document.getElementById('sel-pf').style.width=firstTime?'33%':'66%';
+  document.getElementById('sel-pt').textContent=firstTime?'Step 2 of 3':'Step 3 of 3';
+  var vi_done=S.done.s,ca_done=S.done.h;
+  var vi_card=vi_done
+    ?'<div class="ic" style="opacity:0.5;cursor:not-allowed;"><h3>Values Integration</h3><p>Completed</p><span class="ibadge">Done</span></div>'
+    :'<div class="ic on" onclick="startInstrument(\x27s\x27)"><h3>Values Integration</h3><p>18 items · Part 1: Most/Least · Part 2: Likert 1-5</p><span class="ibadge">~8 minutes</span></div>';
+  var ca_card=ca_done
+    ?'<div class="ic" style="opacity:0.5;cursor:not-allowed;"><h3>Cultural Awareness</h3><p>Completed</p><span class="ibadge">Done</span></div>'
+    :'<div class="ic on" onclick="startInstrument(\x27h\x27)"><h3>Cultural Awareness</h3><p>30 items · Forced choice A/B · 6 dimensions</p><span class="ibadge">~10 minutes</span></div>';
+  grid.innerHTML=vi_card+ca_card;
+}
+function startInstrument(inst){S.cur=inst;S.idx=0;go('questions');renderQ();}
+function showBetween(completedInst){
+  var name=completedInst==='h'?'Cultural Awareness':'Values Integration';
+  var remaining=completedInst==='h'?'Values Integration':'Cultural Awareness';
+  document.getElementById('bt-eyebrow').textContent=name+' Complete';
+  document.getElementById('bt-sub').textContent='You have completed the '+name+' instrument. Take a moment — '+remaining+' begins when you are ready.';
+  go('between');
+}
+function startSecondInstrument(){renderSelectScreen();go('select');}
+
+function items(){if(S.cur==='h')return HI;return SD1.map(function(x,i){return Object.assign({},x,{type:'s1',i:i});}).concat(SD2.map(function(x,i){return{text:x,type:'s2',i:i};}));}
+function renderQ(){const its=items(),tot=its.length,i=S.idx,it=its[i];const pct=Math.round(((i+1)/tot)*100);document.getElementById('qpf').style.width=pct+'%';document.getElementById('qpl').textContent=`Item ${i+1} of ${tot}`;document.getElementById('qil').textContent=S.cur==='h'?'Cultural Awareness Instrument':it.type==='s1'?'Values Integration · Part 1':'Values Integration · Part 2 — Systemic';document.getElementById('bp').style.display=i>0?'':'none';
 const lbl=S.cur==='h'?it.d:it.type==='s1'?Object.values(it.o)[0].lv:'YELLOW';
-let h=`<div class="qmeta"><span class="qb b-${lbl}">${lbl}</span><span class="qcnt">${i+1} / ${tot}</span></div>`;
+let h=`<div class="qmeta"><span class="qcnt" style="font-family:Space Mono,monospace;font-size:0.6rem;color:var(--soft);">Item ${i+1} of ${tot}</span></div>`;
 if(S.cur==='h'){const a=S.ans.h[i];h+=`<div class="qtxt">${it.q}</div><div class="opts"><div class="opt ${a==='A'?'sel':''}" onclick="aH(${i},'A')"><span class="olbl">A</span><span class="otxt">${it.A}</span></div><div class="opt ${a==='B'?'sel':''}" onclick="aH(${i},'B')"><span class="olbl">B</span><span class="otxt">${it.B}</span></div></div>`;}
 else if(it.type==='s1'){const a=S.ans.s1[it.i]||{};h+=`<div class="qtxt">${it.q}</div><p style="font-family:'Space Mono',monospace;font-size:0.58rem;color:var(--mid);margin-bottom:11px;letter-spacing:.04em;">SELECT <strong style="color:var(--blue)">M</strong> = MOST describes you &nbsp;·&nbsp; <strong style="color:var(--red)">m</strong> = LEAST describes you</p><div class="opts">`;['A','B','C','D','E'].forEach(k=>{const o=it.o[k];h+=`<div class="opt ${a.M===k?'selM':''} ${a.m===k?'selm':''}"><span class="olbl">${k}</span><span class="otxt">${o.t}</span><div class="mlw"><button class="mlb ${a.M===k?'aM':''}" onclick="aS1(${it.i},'M','${k}',event)">M</button><button class="mlb ${a.m===k?'am':''}" onclick="aS1(${it.i},'m','${k}',event)">m</button></div></div>`;});h+=`</div>`;}
 else{const a=S.ans.s2[it.i];h+=`<div class="qtxt" style="font-style:normal;font-size:1rem;line-height:1.65;">${it.text}</div><div class="lklbl"><span>Does not describe me</span><span>Describes me completely</span></div><div class="lkopts">${[1,2,3,4,5].map(v=>`<button class="lkb ${a===v?'sel':''}" onclick="aS2(${it.i},${v})">${v}</button>`).join('')}</div>`;}
@@ -546,31 +649,107 @@ document.getElementById('qa').innerHTML=h;}
 function aH(i,c){S.ans.h[i]=c;renderQ();}
 function aS1(i,t,k,e){e.stopPropagation();if(!S.ans.s1[i])S.ans.s1[i]={};const a=S.ans.s1[i];if(a[t]===k)delete a[t];else{if(t==='M'&&a.m===k)delete a.m;if(t==='m'&&a.M===k)delete a.M;a[t]=k;}renderQ();}
 function aS2(i,v){S.ans.s2[i]=v;renderQ();}
-function nextQ(){const its=items();if(S.idx<its.length-1){S.idx++;renderQ();window.scrollTo(0,0);}else nextInst();}
+function nextQ(){
+  var its=items();
+  if(S.idx<its.length-1){S.idx++;renderQ();window.scrollTo(0,0);}
+  else finishInstrument();
+}
+function finishInstrument(){
+  if(S.cur==='h'){S.scores={h:scoreH(),sd:S.scores?S.scores.sd:null};S.done.h=true;}
+  else{var sd=scoreSD();S.scores={h:S.scores?S.scores.h:null,sd:{lv:sd.lv,y:sd.y}};S.done.s=true;}
+  if(S.done.h&&S.done.s) showResults();
+  else showBetween(S.cur);
+}
 function prevQ(){if(S.idx>0){S.idx--;renderQ();window.scrollTo(0,0);}}
 function scoreH(){const s={PDI:0,IDV:0,MAS:0,UAI:0,LTO:0,IVR:0};HI.forEach((it,i)=>{const a=S.ans.h[i];if(a==='A')s[it.d]+=it.sA;else if(a==='B')s[it.d]+=it.sB;});return s;}
 function scoreSD(){const lv={PURPLE:0,RED:0,BLUE:0,ORANGE:0,GREEN:0};SD1.forEach((it,i)=>{const a=S.ans.s1[i]||{};['A','B','C','D','E'].forEach(k=>{const l=it.o[k].lv;if(a.M===k)lv[l]=(lv[l]||0)+2;if(a.m===k)lv[l]=(lv[l]||0)-1;});});let y=0;SD2.forEach((_,i)=>{y+=(S.ans.s2[i]||0);});return{lv,y};}
-function showR(){go('results');const p=S.p;document.getElementById('rname').textContent=`${p.pos||'Participant'} — Cultural Values Profile`;document.getElementById('rdate').textContent=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-let html='',hS=null,sdS=null;
-if(S.inst.h){hS=scoreH();html+=`<div class="ir"><h3>🔷 Hofstede Cultural Values Profile</h3>`;['PDI','IDV','MAS','UAI','LTO','IVR'].forEach(d=>{const s=hS[d],pct=(s/5)*100,pole=s>=4?PL[d][1]:s<=1?PL[d][0]:'Mixed';html+=`<div class="dr"><div class="drl">${d}</div><div class="dbb"><div class="dbf" style="width:${pct}%;background:${DC[d]}"></div></div><div class="dv2">${s}/5</div><div class="dp">${pole}</div></div>`;});html+=`<p style="font-family:'Space Mono',monospace;font-size:0.56rem;color:var(--soft);margin-top:9px;">0–1 low · 2–3 mixed · 4–5 high orientation. Barreto (2026) pre-validation; Hofstede (2001); Taras et al. (2016).</p></div>`;}
-if(S.inst.s){sdS=scoreSD();const rows=[{n:'PURPLE',s:sdS.lv.PURPLE||0},{n:'RED',s:sdS.lv.RED||0},{n:'BLUE',s:sdS.lv.BLUE||0},{n:'ORANGE',s:sdS.lv.ORANGE||0},{n:'GREEN',s:sdS.lv.GREEN||0}];const top=rows.reduce((a,b)=>b.s>a.s?b:a);const yi=sdS.y>=34?'Very active (34–40)':sdS.y>=25?'Emerging (25–33)':sdS.y>=16?'Latent (16–24)':'Not yet activated';html+=`<div class="ir"><h3>🌀 Spiral Dynamics Values Profile</h3><div class="sds">`;rows.sort((a,b)=>b.s-a.s).forEach((r,i)=>{const pct=Math.max(0,((r.s+10)/30)*100);html+=`<div class="sdr ${i===0?'top':''}"><div class="sdn" style="color:${DC[r.n]}">${r.n}</div><div class="sdb"><div class="sdf" style="width:${pct}%;background:${DC[r.n]}"></div></div><div class="sds2">${r.s>=0?'+':''}${r.s}</div></div>`;});html+=`</div><div class="rgrid"><div class="rc"><h4>Centre of Gravity</h4><div class="val" style="color:${DC[top.n]}">${top.n}</div><div class="sub">Highest active level</div></div><div class="rc"><h4>YELLOW — Systemic</h4><div class="val">${sdS.y}/40</div><div class="sub">${yi}</div></div></div><p style="font-family:'Space Mono',monospace;font-size:0.56rem;color:var(--soft);">M=+2 / m=−1. Beck &amp; Cowan (1996); Graves (2005). No level is better or worse than another.</p></div>`;}
-document.getElementById('rc').innerHTML=html;
-const rec={...S.p,hofstede:hS,sd:sdS?{lv:sdS.lv,y:sdS.y}:null};S.R.push(rec);localStorage.setItem('tb_r',JSON.stringify(S.R));sendMail(rec,hS,sdS);}
-function sendMail(rec,h,sd){
-const payload={type:'participant',id:rec.id,role:rec.pos||'',timestamp:rec.ts,
-  PDI:h?h.PDI:'',IDV:h?h.IDV:'',MAS:h?h.MAS:'',UAI:h?h.UAI:'',LTO:h?h.LTO:'',IVR:h?h.IVR:'',
-  PURPLE:sd&&sd.lv?sd.lv.PURPLE||'':'',RED:sd&&sd.lv?sd.lv.RED||'':'',
-  BLUE:sd&&sd.lv?sd.lv.BLUE||'':'',ORANGE:sd&&sd.lv?sd.lv.ORANGE||'':'',
-  GREEN:sd&&sd.lv?sd.lv.GREEN||'':'',YELLOW:sd?sd.y||'':''};
-document.getElementById('sending').classList.add('show');
-fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-  .then(()=>{document.getElementById('sending').classList.remove('show');toast('Results saved and sent ✓');})
-  .catch(()=>{document.getElementById('sending').classList.remove('show');toast('Results saved locally');});}
-function csvHdr(){return'SessionID,Role,Timestamp,PDI,IDV,MAS,UAI,LTO,IVR,PURPLE,RED,BLUE,ORANGE,GREEN,YELLOW';}
-function csvRow(r){const h=r.hofstede||{},sd=r.sd||{lv:{},y:0};return[r.id,r.pos||'',r.ts,h.PDI||'',h.IDV||'',h.MAS||'',h.UAI||'',h.LTO||'',h.IVR||'',sd.lv.PURPLE||'',sd.lv.RED||'',sd.lv.BLUE||'',sd.lv.ORANGE||'',sd.lv.GREEN||'',sd.y||''].join(',');}
-function dlCSV(){const p=S.p,h=S.inst.h?scoreH():null,sd=S.inst.s?scoreSD():null;const rec={...p,hofstede:h,sd:sd?{lv:sd.lv,y:sd.y}:null};dl([csvHdr(),csvRow(rec)].join('\n'),`Barreto2026_${p.pos||'anon'}_${p.id}.csv`);}
-function dlAll(){dl([csvHdr(),...S.R.map(csvRow)].join('\n'),`Barreto2026_AllResponses_${Date.now()}.csv`);}
-function dlJudge(){const hdr=['JudgeID','Name','Institution','Expertise','Timestamp',...HI.map(x=>x.c+'_REL'),...HI.map(x=>x.c+'_CLA'),...HI.map(x=>x.c+'_CUL'),...HI.map(x=>x.c+'_DES')];const rows=[hdr.join(','),...S.J.map(j=>{const r=[j.id,j.name,j.inst,j.exp,j.ts];HI.forEach((_,i)=>r.push((j.a[i]||{}).rel||''));HI.forEach((_,i)=>r.push((j.a[i]||{}).cla||''));HI.forEach((_,i)=>r.push((j.a[i]||{}).cul||''));HI.forEach((_,i)=>r.push((j.a[i]||{}).des||''));return r.join(',');})];dl(rows.join('\n'),`Barreto2026_CVI_${Date.now()}.csv`);}
+function showResults(){go('results');const p=S.p;
+  const hS=S.scores?S.scores.h:null;
+  const sdS=S.scores?S.scores.sd:null;
+  document.getElementById('rname').textContent=(p.pos||'Participant')+' — Your VICAR Profile';
+  document.getElementById('rdate').textContent=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  var html='';
+  // Session code box
+  html+='<div style="background:var(--surface);border:2px solid var(--teal);border-radius:var(--radius);padding:20px;text-align:center;margin-bottom:28px;">';
+  html+='<p style="font-family:Space Mono,monospace;font-size:0.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-d);margin-bottom:8px;">Your Session Code</p>';
+  html+='<div style="font-family:Space Mono,monospace;font-size:2.2rem;font-weight:700;color:var(--text);letter-spacing:.15em;">'+p.id+'</div>';
+  html+='<p style="font-size:0.75rem;color:var(--mid);margin-top:10px;line-height:1.6;">Please note this code. You may be asked to provide it during your structured interview.<br>It contains no personal information.</p>';
+  html+='</div>';
+  // Values Integration
+  if(sdS){
+    var rows=[{n:'PURPLE',s:sdS.lv.PURPLE||0},{n:'RED',s:sdS.lv.RED||0},{n:'BLUE',s:sdS.lv.BLUE||0},{n:'ORANGE',s:sdS.lv.ORANGE||0},{n:'GREEN',s:sdS.lv.GREEN||0}];
+    rows.sort(function(a,b){return b.s-a.s;});
+    var top3=rows.filter(function(r){return r.s>0;}).slice(0,3);
+    var yi=sdS.y>=34?'Very active':sdS.y>=25?'Emerging':sdS.y>=16?'Latent':'Not activated';
+    html+='<div class="ir"><h3>Values Integration Profile</h3>';
+    html+='<p style="font-size:0.82rem;color:var(--mid);line-height:1.7;margin-bottom:18px;">The three most active value systems currently shaping your communication and decision-making:</p>';
+    html+='<div class="sds">';
+    top3.forEach(function(r,i){
+      html+='<div class="sdr '+(i===0?'top':'')+'"><div style="display:flex;flex-direction:column;flex:1;gap:3px;">';
+      html+='<div style="display:flex;align-items:center;gap:8px;"><div class="sdn" style="color:'+VMEME_COLORS[r.n]+'">'+(i===0?'★ ':'')+r.n+'</div>';
+      html+='<div style="font-family:Space Mono,monospace;font-size:0.55rem;color:var(--soft);">'+(i===0?'Centre of gravity':'Active level')+'</div></div>';
+      html+='<div style="font-size:0.78rem;color:var(--mid);line-height:1.55;margin-top:2px;">'+(VMEME_DESC[r.n]||'')+'</div>';
+      html+='</div></div>';
+    });
+    html+='</div>';
+    if(sdS.y>=16)html+='<div class="mnote" style="margin-top:14px;"><strong>Systemic level (YELLOW): '+yi+'</strong> — '+(sdS.y>=25?'You show capacity for integrative thinking and comfort with complexity.':'Emerging capacity for multi-system thinking.')+'</div>';
+    html+='<p style="font-family:Space Mono,monospace;font-size:0.56rem;color:var(--soft);margin-top:12px;">No value system is better or worse than another. Results reflect your current operational context.</p></div>';
+  }
+  // Cultural Awareness
+  if(hS){
+    html+='<div class="ir" style="margin-top:28px;"><h3>Cultural Awareness Profile</h3>';
+    html+='<p style="font-size:0.82rem;color:var(--mid);line-height:1.7;margin-bottom:18px;">Your scores across the six cultural dimensions. Neither pole is better or worse — they reflect different orientations toward work and interaction.</p>';
+    var dims=['PDI','IDV','MAS','UAI','LTO','IVR'];
+    dims.forEach(function(d){
+      var s=hS[d],pct=(s/5)*100;
+      var pole=s>=4?DIM_POLES[d][1]:s<=1?DIM_POLES[d][0]:'Mixed orientation';
+      html+='<div class="dr"><div style="min-width:130px;font-size:0.72rem;color:var(--mid);">'+DIM_LABELS[d]+'</div>';
+      html+='<div class="dbb"><div class="dbf" style="width:'+pct+'%;background:'+DC[d]+'"></div></div>';
+      html+='<div class="dv2">'+s+'/5</div><div class="dp" style="font-size:0.65rem;">'+pole+'</div></div>';
+    });
+    html+='<p style="font-family:Space Mono,monospace;font-size:0.56rem;color:var(--soft);margin-top:9px;">Individual scores are indicative and will be contextualised during the structured interview.</p></div>';
+  }
+  html+='<div class="mnote" style="margin-top:24px;"><strong>Next step:</strong> Your results have been recorded. You will receive a follow-up invitation for a brief structured interview where your profile will be discussed in full context.</div>';
+  document.getElementById('rc').innerHTML=html;
+  var rec=Object.assign({},S.p,{hofstede:hS,sd:sdS?{lv:sdS.lv,y:sdS.y}:null});
+  S.R.push(rec);localStorage.setItem('tb_r',JSON.stringify(S.R));
+  sendData(rec);
+}
+
+function sendData(rec){
+  var h=rec.hofstede||{},sd=rec.sd||{lv:{},y:0};
+  var payload={type:'participant',id:rec.id,role:rec.pos||'',flight:rec.flt||'',flightDate:rec.date||'',timestamp:rec.ts,
+    PDI:h.PDI!==undefined?h.PDI:'',IDV:h.IDV!==undefined?h.IDV:'',MAS:h.MAS!==undefined?h.MAS:'',
+    UAI:h.UAI!==undefined?h.UAI:'',LTO:h.LTO!==undefined?h.LTO:'',IVR:h.IVR!==undefined?h.IVR:'',
+    PURPLE:sd.lv.PURPLE||'',RED:sd.lv.RED||'',BLUE:sd.lv.BLUE||'',ORANGE:sd.lv.ORANGE||'',GREEN:sd.lv.GREEN||'',YELLOW:sd.y||''};
+  document.getElementById('sending').classList.add('show');
+  fetch(GAS_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(){document.getElementById('sending').classList.remove('show');toast('Results saved ✓');})
+    .catch(function(){document.getElementById('sending').classList.remove('show');toast('Results saved locally');});
+}
+
+
+function dlPDF(){
+  var p=S.p,hS=S.scores?S.scores.h:null,sdS=S.scores?S.scores.sd:null;
+  var date=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+  var barColors={PDI:'#9b6dbf',IDV:'#3a9fa8',MAS:'#e05c5c',UAI:'#e8a94a',LTO:'#4caf82',IVR:'#d4cf5a'};
+  var top3=[];
+  if(sdS){var rows=[{n:'PURPLE',s:sdS.lv.PURPLE||0},{n:'RED',s:sdS.lv.RED||0},{n:'BLUE',s:sdS.lv.BLUE||0},{n:'ORANGE',s:sdS.lv.ORANGE||0},{n:'GREEN',s:sdS.lv.GREEN||0}];rows.sort(function(a,b){return b.s-a.s;});top3=rows.filter(function(r){return r.s>0;}).slice(0,3);}
+  var vmemeRows='';
+  top3.forEach(function(r,i){vmemeRows+='<tr style="'+(i===0?'background:#f5f5f5;':'')+'"><td style="padding:10px 12px;font-family:monospace;font-size:12px;font-weight:700;color:'+VMEME_COLORS[r.n]+'">'+(i===0?'★ ':'')+r.n+'</td><td style="padding:10px 12px;font-size:12px;color:#333;">'+(VMEME_DESC[r.n]||'')+'</td><td style="padding:10px 12px;font-size:11px;color:#888;">'+(i===0?'Centre of gravity':'Active level')+'</td></tr>';});
+  var dimRows='';
+  if(hS){['PDI','IDV','MAS','UAI','LTO','IVR'].forEach(function(d){var s=hS[d],pct=(s/5)*100;var pole=s>=4?DIM_POLES[d][1]:s<=1?DIM_POLES[d][0]:'Mixed orientation';dimRows+='<tr><td style="padding:8px 12px;font-size:11px;color:#555;">'+DIM_LABELS[d]+'</td><td style="padding:8px 12px;"><div style="background:#e8e8e8;border-radius:4px;height:8px;width:180px;"><div style="background:'+barColors[d]+';width:'+pct+'%;height:8px;border-radius:4px;"></div></div></td><td style="padding:8px 12px;font-family:monospace;font-size:12px;font-weight:700;">'+s+'/5</td><td style="padding:8px 12px;font-size:11px;color:#555;">'+pole+'</td></tr>';});}
+  var yellowNote=sdS&&sdS.y>=16?'<p style="font-size:11px;color:#666;margin-top:6px;">Systemic level (YELLOW): '+sdS.y+'/40 — '+(sdS.y>=25?'Emerging capacity for integrative thinking.':'Latent systemic awareness.')+'</p>':'';
+  var win=window.open('','_blank');
+  win.document.write('<!DOCTYPE html><html><head><title>VICAR Report — '+p.id+'</title><style>body{font-family:Georgia,serif;margin:40px;color:#1a2e35;max-width:700px;}@media print{body{margin:0;padding:20px;}.no-print{display:none;}}h1{font-size:22px;margin:0 0 4px;}h2{font-size:15px;color:#3a9fa8;margin:28px 0 10px;border-bottom:1px solid #cce4e7;padding-bottom:6px;}table{width:100%;border-collapse:collapse;margin-top:8px;}tr:nth-child(even){background:#f9f9f9;}.code-box{background:#eaf6f7;border:2px solid #3a9fa8;border-radius:10px;padding:16px;text-align:center;margin:20px 0;}.code{font-family:monospace;font-size:28px;font-weight:700;letter-spacing:.15em;color:#1a2e35;}.footer{margin-top:40px;font-size:10px;color:#aaa;border-top:1px solid #eee;padding-top:12px;}.btn{display:inline-block;background:#3a9fa8;color:white;padding:10px 22px;border-radius:6px;font-family:monospace;font-size:12px;margin-top:20px;cursor:pointer;border:none;}</style></head><body><p style="font-family:monospace;font-size:11px;color:#888;margin-bottom:4px;">VICAR · Proprietary Diagnostic Platform</p><h1>VICAR Assessment Report</h1><p style="font-size:12px;color:#555;margin-top:4px;">'+date+' · Role: '+(p.pos||'—')+'</p><div class="code-box"><p style="font-family:monospace;font-size:10px;letter-spacing:.1em;color:#3a9fa8;margin-bottom:6px;">SESSION CODE</p><div class="code">'+p.id+'</div><p style="font-size:11px;color:#555;margin-top:8px;">Keep this code. You may be asked for it during your structured interview.</p></div>'+(vmemeRows?'<h2>Values Integration Profile</h2><p style="font-size:12px;color:#555;margin-bottom:10px;">Your three most active value systems:</p><table>'+vmemeRows+'</table>'+yellowNote:'')+(dimRows?'<h2>Cultural Awareness Profile</h2><p style="font-size:12px;color:#555;margin-bottom:10px;">Your scores across six cultural dimensions:</p><table>'+dimRows+'</table>':'')+'<p style="font-size:11px;color:#888;margin-top:16px;">No value system or cultural orientation is better or worse than another. Results are indicative and will be contextualised during the structured interview.</p><div class="footer">VICAR · Values Integration, Culture Awareness & Recognition · © 2026 · Proprietary diagnostic tool</div><p class="no-print"><button class="btn" onclick="window.print()">Print Print / Save as PDF</button></p></body></html>');
+  win.document.close();
+}
+
+function csvHdr(){return'SessionID,Role,FlightNumber,FlightDate,Timestamp,PDI,IDV,MAS,UAI,LTO,IVR,PURPLE,RED,BLUE,ORANGE,GREEN,YELLOW';}
+function csvRow(r){const h=r.hofstede||{},sd=r.sd||{lv:{},y:0};return[r.id,r.pos||'',r.flt||'',r.date||'',r.ts,h.PDI||'',h.IDV||'',h.MAS||'',h.UAI||'',h.LTO||'',h.IVR||'',sd.lv.PURPLE||'',sd.lv.RED||'',sd.lv.BLUE||'',sd.lv.ORANGE||'',sd.lv.GREEN||'',sd.y||''].join(',');}
+function dlCSV(){const p=S.p,h=S.inst.h?scoreH():null,sd=S.inst.s?scoreSD():null;const rec={...p,hofstede:h,sd:sd?{lv:sd.lv,y:sd.y}:null};dl([csvHdr(),csvRow(rec)].join('\n'),`VICAR_${p.id}.csv`);}
+function dlAll(){dl([csvHdr(),...S.R.map(csvRow)].join('\n'),`VICAR_AllResponses_${Date.now()}.csv`);}
+function dlJudge(){const hdr=['JudgeID','Name','Institution','Expertise','Timestamp',...HI.map(x=>x.c+'_REL'),...HI.map(x=>x.c+'_CLA'),...HI.map(x=>x.c+'_CUL'),...HI.map(x=>x.c+'_DES')];const rows=[hdr.join(','),...S.J.map(j=>{const r=[j.id,j.name,j.inst,j.exp,j.ts];HI.forEach((_,i)=>r.push((j.a[i]||{}).rel||''));HI.forEach((_,i)=>r.push((j.a[i]||{}).cla||''));HI.forEach((_,i)=>r.push((j.a[i]||{}).cul||''));HI.forEach((_,i)=>r.push((j.a[i]||{}).des||''));return r.join(',');})];dl(rows.join('\n'),`VICAR_CVI_${Date.now()}.csv`);}
 function dl(csv,fn){const b=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;a.click();}
 function startJ(){const n=document.getElementById('jn').value.trim(),i=document.getElementById('ji').value.trim();if(!n||!i){toast('Please fill in name and institution.');return;}S.jI={id:'J'+Date.now(),name:n,inst:i,exp:document.getElementById('je').value,email:document.getElementById('jem').value,ts:new Date().toISOString()};S.jA={};go('judge-eval');renderJ(0);}
 function renderJ(idx){const tot=HI.length,it=HI[idx],pct=Math.round(((idx+1)/tot)*100);document.getElementById('jpf').style.width=pct+'%';document.getElementById('jpl').textContent=`Item ${idx+1} of ${tot}`;const a=S.jA[idx]||{};const crits=[{k:'rel',l:'(1) Relevance to dimension',d:'1 = Not relevant · 2 = Somewhat · 3 = Quite · 4 = Very relevant'},{k:'cla',l:'(2) Clarity of wording',d:'1 = Unclear · 2 = Somewhat · 3 = Quite clear · 4 = Very clear'},{k:'cul',l:'(3) Cultural sensitivity',d:'1 = High risk · 2 = Moderate · 3 = Low · 4 = No risk'},{k:'des',l:'(4) Social desirability risk',d:'1 = High risk · 2 = Moderate · 3 = Low · 4 = No risk'}];let ch='';crits.forEach(c=>{const btns=[1,2,3,4].map(v=>`<button class="cb ${a[c.k]===v?'sel':''}" onclick="jR(${idx},'${c.k}',${v})">${v}</button>`).join('');ch+=`<div class="jc"><h5>${c.l}<br><span style="font-weight:400;opacity:0.65;font-size:0.5rem;">${c.d}</span></h5><div class="cs">${btns}</div></div>`;});
@@ -582,6 +761,124 @@ document.getElementById('jarea').innerHTML=`<p class="sl">Submitted</p><h2 class
 go('judge-results');
 }
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+
+// ═══════════════════════════════════════════════════════════════════════
+// VICAR MATRIX — Values Integration × Cultural Awareness
+// Proprietary
+// ═══════════════════════════════════════════════════════════════════════
+
+// Expected Hofstede score ranges per vMEME level (0–5 scale)
+// [min, max] where score in range = no friction (green)
+// Scores outside range = friction. Distance drives color intensity.
+// Rationale: each vMEME has a natural cultural orientation:
+// PURPLE: high PDI (needs hierarchy), high collectivism (low IDV), moderate-high UAI (needs predictability)
+// RED: high PDI (power-based), high MAS (assertive/competitive), low UAI (acts under uncertainty)
+// BLUE: high PDI (respects authority), low IDV (duty over self), high UAI (needs rules), high MAS (duty/discipline)
+// ORANGE: low-mid PDI, high IDV (individual merit), high MAS (achievement), low UAI (risk-tolerant), high LTO
+// GREEN: low PDI (equality), high IDV or balanced, low MAS (feminine), low UAI, high IVR (enjoyment/freedom)
+const VICAR_EXPECTED = {
+  PURPLE: {PDI:[3,5],IDV:[0,2],MAS:[1,3],UAI:[3,5],LTO:[2,4],IVR:[1,3]},
+  RED:    {PDI:[3,5],IDV:[1,4],MAS:[3,5],UAI:[0,2],LTO:[0,2],IVR:[3,5]},
+  BLUE:   {PDI:[3,5],IDV:[0,2],MAS:[2,4],UAI:[3,5],LTO:[3,5],IVR:[0,2]},
+  ORANGE: {PDI:[0,3],IDV:[3,5],MAS:[3,5],UAI:[0,2],LTO:[3,5],IVR:[2,4]},
+  GREEN:  {PDI:[0,2],IDV:[1,4],MAS:[0,2],UAI:[0,2],LTO:[2,4],IVR:[3,5]}
+};
+const DIMS=['PDI','IDV','MAS','UAI','LTO','IVR'];
+const DIM_FULL={PDI:'Power Distance',IDV:'Individualism',MAS:'Masculinity',UAI:'Uncertainty Avoidance',LTO:'Long-Term Orientation',IVR:'Indulgence'};
+const VMEME_ORDER=['PURPLE','RED','BLUE','ORANGE','GREEN'];
+const VMEME_COLORS={PURPLE:'#9b6dbf',RED:'#e05c5c',BLUE:'#3a9fa8',ORANGE:'#e8a94a',GREEN:'#4caf82'};
+
+function frictionColor(score, expected){
+  // score: 0-5, expected: [min,max]
+  const [mn,mx]=expected;
+  if(score>=mn&&score<=mx) return '#4caf82'; // green — no friction
+  const dist=score<mn?mn-score:score-mx;     // distance outside range
+  if(dist===1) return '#a8d870';              // light green — minor
+  if(dist===2) return '#e8c84a';              // amber — attention
+  if(dist===3) return '#e8944a';              // orange — emerging friction
+  return '#e05c5c';                           // red — high friction
+}
+
+function frictionLabel(score, expected){
+  const [mn,mx]=expected;
+  if(score>=mn&&score<=mx) return 'Aligned';
+  const dist=score<mn?mn-score:score-mx;
+  if(dist===1) return 'Minor';
+  if(dist===2) return 'Attention';
+  if(dist===3) return 'Emerging';
+  return 'High friction';
+}
+
+function renderMatrix(){
+  const el=document.getElementById('at-matrix');
+  const responses=S.R.filter(r=>r.hofstede&&r.sd&&r.sd.lv);
+  if(!responses.length){el.innerHTML='<p style="color:var(--soft);padding:16px;">No complete responses yet (requires both instruments).</p>';return;}
+
+  let html='';
+  responses.forEach((rec,ri)=>{
+    const h=rec.hofstede;
+    const sd=rec.sd.lv;
+    const sdRows=[{n:'PURPLE',s:sd.PURPLE||0},{n:'RED',s:sd.RED||0},{n:'BLUE',s:sd.BLUE||0},{n:'ORANGE',s:sd.ORANGE||0},{n:'GREEN',s:sd.GREEN||0}];
+    sdRows.sort((a,b)=>b.s-a.s);
+    const top3=sdRows.filter(r=>r.s>0).slice(0,3);
+    const cog=top3[0]||sdRows[0];
+
+    html+=`<div class="invbox" style="margin-bottom:20px;">`;
+    html+=`<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">`;
+    html+=`<h4 style="margin:0;">${rec.pos||'—'}</h4>`;
+    if(rec.flt)html+=`<span style="font-family:Space Mono,monospace;font-size:0.6rem;background:var(--teal-xl);color:var(--teal-d);padding:2px 8px;border-radius:20px;">${rec.flt}</span>`;
+    if(rec.date)html+=`<span style="font-family:Space Mono,monospace;font-size:0.6rem;color:var(--soft);">${rec.date}</span>`;
+    html+=`<span style="font-family:Space Mono,monospace;font-size:0.7rem;font-weight:700;color:var(--teal-d);background:var(--teal-xl);padding:3px 10px;border-radius:20px;margin-left:auto;">${rec.id}</span></div>`;
+
+    // Active vMEME badges
+    html+=`<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">`;
+    top3.forEach((r,i)=>html+=`<span style="background:${VMEME_COLORS[r.n]};color:white;font-family:Space Mono,monospace;font-size:0.58rem;font-weight:700;padding:3px 9px;border-radius:20px;">${i===0?'★ ':''}${r.n} (${r.s>=0?'+':''}${r.s})</span>`);
+    html+=`</div>`;
+
+    // VICAR MATRIX TABLE
+    html+=`<div style="overflow-x:auto;margin-bottom:10px;"><table style="border-collapse:collapse;width:100%;min-width:480px;font-size:0.72rem;">`;
+    html+=`<thead><tr><th style="text-align:left;font-family:Space Mono,monospace;font-size:0.58rem;color:var(--soft);padding:6px 8px;border-bottom:1px solid var(--border);font-weight:400;">vMEME</th>`;
+    DIMS.forEach(d=>html+=`<th style="text-align:center;font-family:Space Mono,monospace;font-size:0.58rem;color:var(--soft);padding:6px 8px;border-bottom:1px solid var(--border);font-weight:400;">${d}</th>`);
+    html+=`</tr></thead><tbody>`;
+
+    top3.forEach((r,ri)=>{
+      const exp=VICAR_EXPECTED[r.n];
+      html+=`<tr style="${ri===0?'background:var(--surface2);':''}" >`;
+      html+=`<td style="padding:7px 8px;font-family:Space Mono,monospace;font-size:0.65rem;font-weight:700;color:${VMEME_COLORS[r.n]};white-space:nowrap;">${ri===0?'★ ':''}${r.n}</td>`;
+      DIMS.forEach(d=>{
+        const score=h[d]!==undefined?h[d]:null;
+        if(score===null){html+=`<td style="padding:7px 8px;text-align:center;color:var(--soft);">—</td>`;return;}
+        const bg=frictionColor(score,exp[d]);
+        const lbl=frictionLabel(score,exp[d]);
+        const textCol=(bg==='#4caf82'||bg==='#a8d870')?'#1a3d28':'#1a1a1a';
+        html+=`<td style="padding:7px 8px;text-align:center;background:${bg};color:${textCol};border-radius:4px;font-family:Space Mono,monospace;font-weight:700;" title="${DIM_FULL[d]}: ${score}/5 — ${lbl}">${score}/5</td>`;
+      });
+      html+=`</tr>`;
+    });
+    html+=`</tbody></table></div>`;
+
+    // Friction legend
+    html+=`<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;">`;
+    [['#4caf82','Aligned'],['#a8d870','Minor'],['#e8c84a','Attention'],['#e8944a','Emerging'],['#e05c5c','High friction']].forEach(([c,l])=>{
+      html+=`<div style="display:flex;align-items:center;gap:4px;font-family:Space Mono,monospace;font-size:0.52rem;color:var(--mid);"><div style="width:10px;height:10px;border-radius:2px;background:${c};"></div>${l}</div>`;
+    });
+    html+=`</div>`;
+
+    // Full Hofstede scores for admin
+    html+=`<div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);">`;
+    html+=`<p style="font-family:Space Mono,monospace;font-size:0.58rem;color:var(--soft);margin-bottom:8px;">CULTURAL AWARENESS — Raw scores</p>`;
+    html+=`<div style="display:flex;gap:8px;flex-wrap:wrap;">`;
+    DIMS.forEach(d=>{
+      html+=`<div style="text-align:center;background:var(--surface2);border-radius:6px;padding:7px 10px;"><div style="font-family:Space Mono,monospace;font-size:0.9rem;font-weight:700;color:var(--text);">${h[d]!==undefined?h[d]:'—'}</div><div style="font-family:Space Mono,monospace;font-size:0.5rem;color:var(--soft);margin-top:2px;">${d}</div></div>`;
+    });
+    // Yellow if available
+    if(rec.sd&&rec.sd.y!==undefined)html+=`<div style="text-align:center;background:var(--surface2);border-radius:6px;padding:7px 10px;"><div style="font-family:Space Mono,monospace;font-size:0.9rem;font-weight:700;color:#7a7010;">${rec.sd.y}</div><div style="font-family:Space Mono,monospace;font-size:0.5rem;color:var(--soft);margin-top:2px;">YELLOW</div></div>`;
+    html+=`</div></div>`;
+    html+=`</div>`; // close invbox
+  });
+
+  el.innerHTML=html||'<p style="color:var(--soft);">No data.</p>';
+}
 </script>
 </body>
 </html>
